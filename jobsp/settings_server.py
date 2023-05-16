@@ -23,7 +23,7 @@ UWSGI_FILE_NAME = "jobs_uwsgi.ini"
 # AWS_DEFAULT_ACL = "public-read"
 # S3_DOMAIN = AWS_S3_CUSTOM_DOMAIN = str(AWS_BUCKET_NAME) + ".s3.amazonaws.com"
 
-LOGO = "https://%s/logo.png" % (S3_DOMAIN)
+LOGO = "https://s/logo.png"
 
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 # DEFAULT_S3_PATH = "media"
