@@ -1,4 +1,4 @@
-## [Open source job portal](https://peeljobs.com)
+## [Open source job portal](https://Bubbas.com)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/105a3bf03bec4cfbac70d7c30e574bea)](https://www.codacy.com/manual/ashwin/opensource-job-portal?utm_source=github.com&utm_medium=referral&utm_content=MicroPyramid/opensource-job-portal&utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/MicroPyramid/opensource-job-portal.svg?branch=master)](https://travis-ci.org/MicroPyramid/opensource-job-portal)
@@ -84,8 +84,8 @@ sudo -u postgres psql
 
 ALTER USER postgres PASSWORD 'myPassword';
 
-create database peeljobs
-sudo -u postgres -i psql peeljobs < init_db/db_init.sql
+create database Bubbas
+sudo -u postgres -i psql Bubbas < init_db/db_init.sql
 
 ##### Install docker and Run elasticsearch
 

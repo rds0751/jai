@@ -9,9 +9,9 @@
 > SECRET_KEY=""
 > HTML_MINIFY=True/False
 > ENV_TYPE="DEV" or "PROD"
-> DEFAULT_FROM_EMAIL='PeelJobs <support@peeljobs.com>'
+> DEFAULT_FROM_EMAIL='Bubbas <support@Bubbas.com>'
 > CONTACT_NUMBER='850 009 9499'
-> PEEL_URL="http://peeljobs.com/"
+> PEEL_URL="http://Bubbas.com/"
 > CACHE_BACKEND = "memcached://127.0.0.1:11211/"
 > MINIFIED_URL=''
 
@@ -32,7 +32,7 @@
 
 ## Postgresql DB keys
 
-> DB_NAME='peeljobs'
+> DB_NAME='Bubbas'
 > DB_USER='postgres'
 > DB_PASSWORD='root'
 > DB_HOST='127.0.0.1'
@@ -64,7 +64,7 @@
 
 > FACEBOOK_APP_ID=""
 > FACEBOOK_APP_SECRET=""
-> FBPEELJOBSPAGEID=""
+> FBBubbasPAGEID=""
 
 ## Linkedin Integration keys
 

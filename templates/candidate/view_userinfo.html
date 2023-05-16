@@ -5,12 +5,12 @@
 {% load static %}
 {% load tz %}
 {% block block_canonical %}
-<link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+<link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 {% block block_title %}
-<title>Profile - Apply Jobs - Free Job Posting - Job Vacancies - Job search in India - PeelJobs</title>
-<meta name="description" content="Profile - Apply Jobs - PeelJobs - Free Job posting. Search & Apply for Full Time, Internship,  Walk In Jobs. Fill Your Profile to receive email notifications. "/>
-<meta name="Keywords" content="job, jobs, tech jobs, it jobs, job sites, job vacancies, find jobs, search jobs, resume tips, job search engines, careers, technology jobs, career search, job descriptions, employment, work, job listings, peeljobs.com" />
+<title>Profile - Apply Profiles - Free Job Posting - Job Vacancies - Job search in India - Bubbas</title>
+<meta name="description" content="Profile - Apply Profiles - Bubbas - Free Job posting. Search & Apply for Full Time, Internship,  Walk In Profiles. Fill Your Profile to receive email notifications. "/>
+<meta name="Keywords" content="job, jobs, tech jobs, it jobs, job sites, job vacancies, find jobs, search jobs, resume tips, job search engines, careers, technology jobs, career search, job descriptions, employment, work, job listings, Bubbas.com" />
 {% endblock %}
 {% block page_search_block %}
 {% show_search_filter %}
@@ -917,7 +917,7 @@
         {% endif %}
         <div class="job_list_section" id="div_suggested_jobs">
           <div class="profile_detail_block" style="margin-bottom:-10px"  >
-            <div class="head">Suggested Jobs </div>
+            <div class="head">Suggested Profiles </div>
           </div>
           <!-- job_item starts here -->
           {% include 'company_job_list.html' with job_list=request.user.related_jobs %}
@@ -925,7 +925,7 @@
         </div>
         <div class="job_list_section" id="div_applied_jobs">
           <div class="profile_detail_block" style="margin-bottom:-10px"  >
-            <div class="head">Applied Jobs </div>
+            <div class="head">Applied Profiles </div>
           </div>
           {% if request.user.get_applied_jobs %}
           <!-- job_item starts here -->
@@ -934,7 +934,7 @@
           {% else %}
           <div class="job_item">
             <div class="detail_each_wrap error">
-              You Haven't Applied For Any Jobs
+              You Haven't Applied For Any Profiles
             </div>
           </div>
           {% endif %}

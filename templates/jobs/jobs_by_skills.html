@@ -4,7 +4,7 @@
 {% load cache %}
 {% load thumbnail %}
 {% block block_canonical %}
-<link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+<link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 {% block block_title %}
 {% include "meta_data/jobs_by_skills.html" %}
@@ -26,12 +26,12 @@
           </li>
           <li>
             <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs">
-              <span class="name">Latest Jobs</span>
+              <span class="name">Latest Profiles</span>
             </a>
           </li>
           <li class="current">
             <span href="{% url 'jobs_by_location' 'jobs' %}" class="active job_detail">
-              <span class="name">Jobs by Skill</span>
+              <span class="name">Profiles by Skill</span>
             </span>
           </li>
         </ol>
@@ -169,7 +169,7 @@
           <div class="skills_results">
             {% if all_skills %}
             {% for skill in all_skills|dictsort:"name" %}
-            <a href="{{ skill.get_job_url }}" > {{skill.name}} Jobs </a>
+            <a href="{{ skill.get_job_url }}" > {{skill.name}} Profiles </a>
             {% endfor %}
             {% else %}
             No Skills Available Here.

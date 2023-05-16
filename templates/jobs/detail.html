@@ -4,7 +4,7 @@
 {% load searchtags %}
 {% load static %}
 {% block block_canonical %}
-<link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+<link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 {% block block_title %}
  {% include "meta_data/detail.html" %}
@@ -20,8 +20,8 @@
     <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ job_url }}&t={{ job.title }}" target="_blank" class="facebook social"><i class="fa fa-facebook"></i></a></li>
     <li><a href="https://www.linkedin.com/cws/share?url={{ job_url }}&token=&isFramed=true" target="_blank" class="linkedin social"><i class="fa fa-linkedin"></i></a></li>
     <!-- <li><a href="https://plus.google.com/share?hl=en-US&url={{ job_url }}" class="google social" target="_blank"><i class="fa fa-google-plus"></i></a></li> -->
-    <li><a href="https://twitter.com/intent/tweet?text={{ job.title }}&url={{ job_url }}&via=PeelJobs" target="_blank" class="twitter social"><i class="fa fa-twitter"></i></a></li>
-    <li><a href="mailto:?subject=Peeljobs%20Job%20post%20sharing&body={{ job_url }}" target="_blank" class="envelope social"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="https://twitter.com/intent/tweet?text={{ job.title }}&url={{ job_url }}&via=Bubbas" target="_blank" class="twitter social"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="mailto:?subject=Bubbas%20Job%20post%20sharing&body={{ job_url }}" target="_blank" class="envelope social"><i class="fa fa-envelope"></i></a></li>
   </ul>
   {% endwith %}
   <div class="container">
@@ -36,12 +36,12 @@
           </li>
           <li>
             <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{job.skills.all.0.get_job_url}}">
-              <span class="name">{{job.skills.all.0.name}} Jobs</span>
+              <span class="name">{{job.skills.all.0.name}} Profiles</span>
             </a>
           </li>
           <li class="current">
             <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{ job.skills.all.0.slug }}-jobs-in-{{ job.location.all.0.slug }}/">
-              <span class="name">{{ job.skills.all.0.name }} Jobs in {{ job.location.all.0.name }}</span>
+              <span class="name">{{ job.skills.all.0.name }} Profiles in {{ job.location.all.0.name }}</span>
             </a>
           </li>
         </ol>
@@ -96,7 +96,7 @@
                   {% if job.user.is_superuser %}
                     {% if job.company_emails %}
                       <span class="apply_btn">
-                        <a href="mailto:{{ job.get_company_emails }}?subject={{ job.title }}%20-%20PeelJobs&body={{ job.get_job_minified_url }}" class="latest_job_type send_mail {% if request.user.is_active %}active{% endif %} {% if request.user.profile_completion_percentage > 50 %}completed{% endif %} {% if request.user.is_authenticated %}logged{% endif %}">Apply</a>
+                        <a href="mailto:{{ job.get_company_emails }}?subject={{ job.title }}%20-%20Bubbas&body={{ job.get_job_minified_url }}" class="latest_job_type send_mail {% if request.user.is_active %}active{% endif %} {% if request.user.profile_completion_percentage > 50 %}completed{% endif %} {% if request.user.is_authenticated %}logged{% endif %}">Apply</a>
                       </span>
                     {% endif %}
                   {% else %}
@@ -125,7 +125,7 @@
                 {% if not job.user.is_superuser %}
                   <a href="{% url 'recruiter_profile' job.user.username %}" target="_blank">View jobs by this recruiter</a>
                 {% endif %}
-                <a target="_blank" id="similar_job_alert">Send Me Jobs Like this</a>
+                <a target="_blank" id="similar_job_alert">Send Me Profiles Like this</a>
               </div>
               <div class="modal fade" id="create_similarjob_alert" data-keyboard="true" >
                 <div class="modal-content">
@@ -206,7 +206,7 @@
               </div>
               <!-- similar_jobs starts here -->
               <div class="similar_jobs_section">
-                <p class="head text-uppercase">Recommended Jobs</p>
+                <p class="head text-uppercase">Recommended Profiles</p>
                 <div id="recommended_jobs_carousel" class="carousel slide">
                   <ol class="carousel-indicators">
                     <li data-target="#recommended_jobs_carousel" data-slide-to="0" class="active"></li>
@@ -236,7 +236,7 @@
                               {% else %}
                               <a style="cursor:default">{{ location.name }}</a>
                               {% endif %}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}</p>
-                              <!--<p><a href="https://peeljobs.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
+                              <!--<p><a href="https://Bubbas.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
                               <p><a href="{{ job.get_absolute_url }}" target="_blank" class="apply">Apply Job</a></p>
                               </div>
                             </div>
@@ -267,7 +267,7 @@
                                 {% else %}
                                 <a style="cursor:default">{{ location.name }}</a>
                                 {% endif %}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}</p>
-                              <!--<p><a href="https://peeljobs.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
+                              <!--<p><a href="https://Bubbas.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
                               <p><a href="{{ job.get_absolute_url }}" target="_blank" class="apply">Apply Job</a></p>
                               </div>
                             </div>
@@ -297,7 +297,7 @@
                                 {% else %}
                                 <a style="cursor:default">{{ location.name }}</a>
                                 {% endif %}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}</p>
-                              <!--<p><a href="https://peeljobs.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
+                              <!--<p><a href="https://Bubbas.com/{{job.get_job_type}}-jobs/" target="_blank" class="apply">{{ job.job_type|get_string }}</a></p>-->
                               <p><a href="{{ job.get_absolute_url }}" target="_blank" class="apply">Apply Job</a></p>
                               </div>
                             </div>
@@ -309,7 +309,7 @@
                             <div class="col-md-4 col-sm-6 job_outer_col">
                             <div class="job_col view_more_div">
                               <a class="view_more" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{ job.get_skills.0.slug }}{% if job.get_skills %}-{% endif %}jobs-in-{{job.location.all.0.slug}}/" target="_blank">
-                                View More Jobs
+                                View More Profiles
                              </a></div>
                             </div>
                       </div>
@@ -331,13 +331,13 @@
                 {% for search in job.skills.all %}
                   {% if search.status == 'Active' and loc.status == 'Enabled' %}
                     <li>
-                      <a href="{% url 'custome_search' search.slug loc.slug %}">&raquo; {{ search.name }} Jobs in {{ loc.name }}</a>
+                      <a href="{% url 'custome_search' search.slug loc.slug %}">&raquo; {{ search.name }} Profiles in {{ loc.name }}</a>
                     </li>
                     <li>
                       <a href="{% url 'custom_walkins' search.slug loc.slug %}">&raquo; {{ search.name }} Walkins in {{ loc.name }}</a>
                     </li>
                     <li>
-                      <a href="{% url 'skill_location_wise_fresher_jobs' search.slug loc.slug %}">&raquo; {{ search.name }} Fresher Jobs in {{ loc.name }}</a>
+                      <a href="{% url 'skill_location_wise_fresher_jobs' search.slug loc.slug %}">&raquo; {{ search.name }} Fresher Profiles in {{ loc.name }}</a>
                     </li>
                   {% endif %}
                 {% endfor %}
@@ -358,7 +358,7 @@
 <div class="col-md-3 right_container">
   <!-- upload_btn_block starts here -->
   <div class="similar_job_posts" style="margin-bottom:10px;">
-    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeeljobs%2F&width=300&height=150&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=892560280818752" width="300" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBubbas%2F&width=300&height=150&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=892560280818752" width="300" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
   </div>
   {% if request.user.is_authenticated %}
  {% if request.user.is_jobseeker and not request.user.resume %}
@@ -380,7 +380,7 @@
   <div class="subscribe_box">
     <div class="login_box">
       <p class="head text-capitalize">SUBSCRIBE WITH US, TO GET JOBS INTO YOUR INBOX</p>
-      <form id="Jobsubscribeform" name="Jobsubscribeform" class="Jobsubscribeform" method = "POST">
+      <form id="Profilesubscribeform" name="Profilesubscribeform" class="Profilesubscribeform" method = "POST">
         <div class="form-group">
           <select class="form-control" id="job_skills" name="skill" multiple>
           </select>
@@ -430,7 +430,7 @@
   <!--register_login form ends here -->
 {% if job.get_similar_jobposts %}
   <div class="walkin_jobs">
-    <div class="heading text-uppercase">Similar Jobs</div>
+    <div class="heading text-uppercase">Similar Profiles</div>
     <ul class="walkin_blocks">
     {% for post in job.get_similar_jobposts|slice:":7" %}
       <li class="walkin_block" id="{{ post.get_absolute_url }}">
@@ -456,83 +456,83 @@
     <ul class="recruiter_blocks">
       <li class="recruiter_block" id="/ibm-india-pvt-limited-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/ibm.png' "70x70" %}" alt="IBM-India-pvt-limited"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/ibm.png' "70x70" %}" alt="IBM-India-pvt-limited"/>
         </div>
         <div class="content">
           <strong class="title"><a>IBM India Private Limited.</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/infosys-multinational-private-limited-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/infosys.png' "70x70" %}" alt="Infosys Private Limited"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/infosys.png' "70x70" %}" alt="Infosys Private Limited"/>
         </div>
         <div class="content">
           <strong class="title"><a>Infosys Private Limited</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/tcs-pvt-ltd-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/tcs.png' "70x70" %}" alt="TCS Pvt Ltd"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/tcs.png' "70x70" %}" alt="TCS Pvt Ltd"/>
         </div>
         <div class="content">
           <strong class="title"><a>TCS Pvt Ltd</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/dell-private-limited-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/dell.png' "70x70" %}" alt="Dell Private Limited"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/dell.png' "70x70" %}" alt="Dell Private Limited"/>
         </div>
         <div class="content">
           <strong class="title"><a>Dell Private Limited</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/accenture-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/accenture.png' "70x70" %}" alt="Accenture"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/accenture.png' "70x70" %}" alt="Accenture"/>
         </div>
         <div class="content">
           <strong class="title"><a>Accenture</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/tech-mahindra-private-limited-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/mahindra.png' "70x70" %}" alt="Tech Mahindra Private Limited"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/mahindra.png' "70x70" %}" alt="Tech Mahindra Private Limited"/>
         </div>
         <div class="content">
           <strong class="title"><a>Tech Mahindra Private Limited</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/cognizant-technology-solutions-india-ltd-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/cts.png' "70x70" %}" alt="Cognizant Technology Solutions India Ltd"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/cts.png' "70x70" %}" alt="Cognizant Technology Solutions India Ltd"/>
         </div>
         <div class="content">
           <strong class="title"><a>Cognizant Technology Solutions India Ltd</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/ravsoft-solutions-india-pvt-ltd-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/rav.png' "70x70" %}" alt="RAVSoft Solutions India Pvt Ltd"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/rav.png' "70x70" %}" alt="RAVSoft Solutions India Pvt Ltd"/>
         </div>
         <div class="content">
           <strong class="title"><a>RAVSoft Solutions India Pvt Ltd</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <li class="recruiter_block" id="/ace-group-private-limited-job-openings/">
         <div class="img_part">
-          <img src="{% thumbnail 'https://cdn.peeljobs.com/companies1/ace.png' "70x70" %}" alt="ACE Group Private Limited"/>
+          <img src="{% thumbnail 'https://cdn.Bubbas.com/companies1/ace.png' "70x70" %}" alt="ACE Group Private Limited"/>
         </div>
         <div class="content">
           <strong class="title"><a>ACE Group Private Limited</a></strong>
-          <p class="redirect"><a>View Jobs</a></p>
+          <p class="redirect"><a>View Profiles</a></p>
         </div>
       </li>
       <a href="{% url 'companies' %}" target="_blank"><span class="view_all">See More</span></a>
@@ -629,7 +629,7 @@
           console.log(data.error, data.message)
           if (data.error == false) {
               $("#create_similarjob_alert").modal('hide')
-              open_dialog('Success, We will reach you with Jobs of this type', 'Success!')
+              open_dialog('Success, We will reach you with Profiles of this type', 'Success!')
           }
           else {
               $('p.hint').remove();
@@ -762,10 +762,10 @@
     })
     a = $("select#job_skills option:selected")
     $.each($("select#job_skills option:selected"), function (i, field) {
-        $(".Jobsubscribeform .select2-search").remove()
-        span = $('.Jobsubscribeform .select2').children().children().children().append('<li class="select2-selection__choice" title="' + $(this).text() + '"><span class="select2-selection__choice__remove" role="presentation">×</span>' + $(this).text() + '</li>')
+        $(".Profilesubscribeform .select2-search").remove()
+        span = $('.Profilesubscribeform .select2').children().children().children().append('<li class="select2-selection__choice" title="' + $(this).text() + '"><span class="select2-selection__choice__remove" role="presentation">×</span>' + $(this).text() + '</li>')
     });
-    $(".Jobsubscribeform .select2-selection__choice__remove").click(function (e) {
+    $(".Profilesubscribeform .select2-selection__choice__remove").click(function (e) {
         option = $(this).parent().attr('title')
         $.each($("select#job_skills option:selected"), function (k, f) {
             if ($(this).text() == option) {
@@ -773,8 +773,8 @@
             }
         });
         $(this).parent().remove()
-        if (!($('.Jobsubscribeform .select2').children().children().children().children()).length) {
-            $('.Jobsubscribeform .select2').children().children().children().append('<li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" placeholder="Select here" style="width: 254px;"></li>')
+        if (!($('.Profilesubscribeform .select2').children().children().children().children()).length) {
+            $('.Profilesubscribeform .select2').children().children().children().append('<li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" placeholder="Select here" style="width: 254px;"></li>')
         }
     })
   }); {% endcomment %}

@@ -5,16 +5,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# peeljobs: https://ogp.me/ns/fb/peeljobs#">
+  <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# Bubbas: https://ogp.me/ns/fb/Bubbas#">
     <meta property="fb:app_id" content="469881999753251" />
-    <meta property="og:type"   content="peeljobs:job" />
+    <meta property="og:type"   content="Bubbas:job" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% block block_title %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url" content="https://peeljobs.com{{ request.path }}" />
-    <title>Free Job Posting - Peeljobs</title>
+    <meta property="og:url" content="https://Bubbas.com{{ request.path }}" />
+    <title>Free Job Posting - Bubbas</title>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{favicon}}"/>
     <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
@@ -85,7 +85,7 @@
     <div class="wrapper">
       <!-- navbar starts here -->
       <nav class="navbar navbar-expand-lg  navbar-fixed-top">
-        <a class="navbar-brand" href="{% if request.user.is_agency_recruiter %}{% url "agency:dashboard" %}{% else %}{% url "recruiter:dashboard" %}{% endif %}">Peeljobs</a>
+        <a class="navbar-brand" href="{% if request.user.is_agency_recruiter %}{% url "agency:dashboard" %}{% else %}{% url "recruiter:dashboard" %}{% endif %}">Bubbas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
         </button>
@@ -95,13 +95,13 @@
                 <a href="#" class="post-new nav-link"><i class="fas fa-paper-plane"></i>Post A Job</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-envelope"></i> Jobs Posted<span class="count yellow">{{ request.user.get_jobposts_count }}</span></a>
+                <a href="#" class="nav-link"><i class="fas fa-envelope"></i> Profiles Posted<span class="count yellow">{{ request.user.get_jobposts_count }}</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'recruiter:list' %}"><i class="fas fa-toggle-on"></i> Active Jobs <span class="count green">{{ request.user.get_active_jobposts_count }}</span></a>
+                <a class="nav-link" href="{% url 'recruiter:list' %}"><i class="fas fa-toggle-on"></i> Active Profiles <span class="count green">{{ request.user.get_active_jobposts_count }}</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'recruiter:inactive_jobs' %}"><i class="fas fa-toggle-off"></i> Inactive Jobs<span class="count red">{{ request.user.get_inactive_jobposts_count }}</span></a>
+                <a class="nav-link" href="{% url 'recruiter:inactive_jobs' %}"><i class="fas fa-toggle-off"></i> Inactive Profiles<span class="count red">{{ request.user.get_inactive_jobposts_count }}</span></a>
             </li>
             {% get_unread_messages request.user '' '' as unread_messages %}
             <li class="nav-item">
@@ -134,9 +134,9 @@
                 <li class="active"><a href="{% url "agency:dashboard" %}"  class="menu_item"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
                 {% endif %}
                 {% if request.user.is_agency_recruiter %}
-                 <li class=""><a href="{% url "agency:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Jobs List</span></a></li>
+                 <li class=""><a href="{% url "agency:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Profiles List</span></a></li>
                  {% else %}
-                 <li class=""><a href="{% url "recruiter:dashboard" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Jobs List</span></a></li>
+                 <li class=""><a href="{% url "recruiter:dashboard" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Profiles List</span></a></li>
                  {% endif %}
                 {% if request.user.is_agency_admin or request.user.is_company_recruiter or request.user|check_recruiter_perm:"jobposts_edit" %}
                 <li><a class="menu_item post-new" href="#"><i class='fa fa-briefcase'></i><span>Post A Job</span></a></li>

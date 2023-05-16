@@ -68,7 +68,7 @@ def updating_jobposts():
     for job in jobposts:
         job_url = get_absolute_url(job)
         job.slug = get_absolute_url(job)
-        # job.minified_url = google_mini('https://peeljobs.com' + job_url, settings.wMINIFIED_URL)
+        # job.minified_url = google_mini('https://Bubbas.com' + job_url, settings.wMINIFIED_URL)
         job.save()
 
 
@@ -101,7 +101,7 @@ def job_alerts_to_users():
                 user_posts = user_posts.order_by(job_order)
             c = {"jobposts": user_posts.distinct()[:10], "user": user}
             t = loader.get_template("email/job_alert.html")
-            subject = "Top Matching Jobs for your Profile - PeelJobs"
+            subject = "Top Matching Jobs for your Profile - Bubbas"
             rendered = t.render(c)
             mto = [user.email]
             user_active = True if user.is_active else False
@@ -137,7 +137,7 @@ def job_alerts_to_subscribers():
                 "sub_skills": skills,
             }
             t = loader.get_template("email/job_alert.html")
-            subject = "Top Matching jobs for your subscription - PeelJobs"
+            subject = "Top Matching jobs for your subscription - Bubbas"
             rendered = t.render(c)
             mto = [sub.email]
             user_active = False
@@ -221,7 +221,7 @@ def jobpost_published():
 
         c = {"job_post": job, "user": job.user}
         t = loader.get_template("email/jobpost.html")
-        subject = "PeelJobs JobPost Status"
+        subject = "Bubbas JobPost Status"
         mto = [settings.DEFAULT_FROM_EMAIL, job.user.email]
         rendered = t.render(c)
         send_email.delay(mto, subject, rendered)
@@ -266,10 +266,10 @@ def fbpost(user, job_post):
                 (job_post.published_message or job_post.title)
                 + skill_hash
                 + loc_hash
-                + " #Jobs #Peeljobs"
+                + " #Jobs #Bubbas"
             )
             params["picture"] = settings.LOGO
-            params["link"] = "http://peeljobs.com" + str(job_post.get_absolute_url())
+            params["link"] = "http://Bubbas.com" + str(job_post.get_absolute_url())
 
             params["name"] = job_post.title
             params["description"] = job_post.company_name
@@ -317,13 +317,13 @@ def postonpeel_fb(job_post):
             (job_post.published_message or job_post.title)
             + skill_hash
             + loc_hash
-            + " #Jobs #Peeljobs"
+            + " #Jobs #Bubbas"
         )
         if job_post.company.profile_pic and job_post.company.is_active:
             params["picture"] = (
                 job_post.company.profile_pic
                 if "https" in str(job_post.company.profile_pic)
-                else "https://cdn.peeljobs.com/" + str(job_post.company.profile_pic)
+                else "https://cdn.Bubbas.com/" + str(job_post.company.profile_pic)
             )
         elif job_post.major_skill and job_post.major_skill.icon:
             params["picture"] = job_post.major_skill.icon
@@ -333,23 +333,23 @@ def postonpeel_fb(job_post):
         ):
             params["picture"] = job_post.skills.all()[0].icon
         else:
-            params["picture"] = "https://cdn.peeljobs.com/jobopenings1.png"
-        params["link"] = "http://peeljobs.com" + str(job_post.get_absolute_url())
+            params["picture"] = "https://cdn.Bubbas.com/jobopenings1.png"
+        params["link"] = "http://Bubbas.com" + str(job_post.get_absolute_url())
         job_name = job_post.title
 
         params["description"] = (
             job_post.company.name if job_post.company else job_post.company_name
         )
         params["access_token"] = settings.FB_PAGE_ACCESS_TOKEN
-        params["actions"] = [{"name": "get peeljobs", "link": settings.PEEL_URL}]
+        params["actions"] = [{"name": "get Bubbas", "link": settings.PEEL_URL}]
 
         params["name"] = job_name
-        params["caption"] = "http://peeljobs.com"
-        params["actions"] = [{"name": "get peeljobs", "link": "http://peeljobs.com/"}]
+        params["caption"] = "http://Bubbas.com"
+        params["actions"] = [{"name": "get Bubbas", "link": "http://Bubbas.com/"}]
 
         params = urllib.parse.urlencode(params)
         u = requests.post(
-            "https://graph.facebook.com/" + settings.FB_PEELJOBS_PAGEID + "/feed",
+            "https://graph.facebook.com/" + settings.FB_Bubbas_PAGEID + "/feed",
             params=params,
         )
         response = u.json()
@@ -361,7 +361,7 @@ def postonpeel_fb(job_post):
             FacebookPost.objects.create(
                 job_post=job_post,
                 page_or_group="peel_jobs",
-                page_or_group_id=settings.FB_PEELJOBS_PAGEID,
+                page_or_group_id=settings.FB_Bubbas_PAGEID,
                 post_id=response["id"],
                 post_status="Posted",
             )
@@ -395,13 +395,13 @@ def postonpage(user, job_post):
                 (job_post.published_message or job_post.title)
                 + skill_hash
                 + loc_hash
-                + " #Jobs #Peeljobs"
+                + " #Jobs #Bubbas"
             )
             params["picture"] = settings.LOGO
             params["link"] = settings.PEEL_URL + str(job_post.slug)
             params["name"] = job_post.title
             params["description"] = job_post.company_name
-            params["actions"] = [{"name": "get peeljobs", "link": settings.PEEL_URL}]
+            params["actions"] = [{"name": "get Bubbas", "link": settings.PEEL_URL}]
             params["access_token"] = pages[0].accesstoken
             params = urllib.parse.urlencode(params)
 
@@ -452,7 +452,7 @@ def postongroup(job_post, group_id):
             (job_post.published_message or job_post.title)
             + skill_hash
             + loc_hash
-            + " #Jobs #Peeljobs"
+            + " #Jobs #Bubbas"
         )
 
         skills = job_post.get_skills()
@@ -460,13 +460,13 @@ def postongroup(job_post, group_id):
             skills[0].icon if skills and skills[0].icon else settings.LOGO
         )
 
-        PEEL_URL = "https://peeljobs.com"
+        PEEL_URL = "https://Bubbas.com"
         params["link"] = PEEL_URL + str(job_post.get_absolute_url())
 
         params["name"] = job_post.title
         params["description"] = job_post.company_name
         params["access_token"] = settings.FB_GROUP_ACCESS_TOKEN
-        params["actions"] = [{"name": "get peeljobs", "link": settings.PEEL_URL}]
+        params["actions"] = [{"name": "get Bubbas", "link": settings.PEEL_URL}]
         params = urllib.parse.urlencode(params)
         requests.post(
             "https://graph.facebook.com/" + str(group_id) + "/feed", params=params
@@ -500,7 +500,7 @@ def poston_allfb_groups(job_post):
             )
             params["message"] = (
                 job_post.published_message
-                or job_post.title + skill_hash + loc_hash + " #jobs #peeljobs"
+                or job_post.title + skill_hash + loc_hash + " #jobs #Bubbas"
             )
             skills = job_post.get_skills()
 
@@ -508,13 +508,13 @@ def poston_allfb_groups(job_post):
                 skills[0].icon if skills and skills[0].icon else settings.LOGO
             )
 
-            PEEL_URL = "https://peeljobs.com"
+            PEEL_URL = "https://Bubbas.com"
             params["link"] = PEEL_URL + str(job_post.get_absolute_url())
 
             params["name"] = job_name
             params["description"] = job_post.company_name
             params["access_token"] = settings.FB_ALL_GROUPS_TOKEN
-            params["actions"] = [{"name": "get peeljobs", "link": settings.PEEL_URL}]
+            params["actions"] = [{"name": "get Bubbas", "link": settings.PEEL_URL}]
             params = urllib.parse.urlencode(params)
             requests.post(
                 "https://graph.facebook.com/" + str(group_id) + "/feed", params=params
@@ -585,7 +585,7 @@ def postonlinkedin(user, job_post):
             "comment": job_post.published_message,
             "content": {
                 "title": job_name,
-                "submitted-url": "http://peeljobs.com"
+                "submitted-url": "http://Bubbas.com"
                 + str(job_post.get_absolute_url()),
                 "submitted-image-url": settings.LOGO,
                 "description": job_name,
@@ -663,9 +663,9 @@ def postontwitter(user, job_post, page_or_profile):
                 for name in job_post.location.values_list("name", flat=True)
             ]
         )
-        job_name = job_name + skill_hash + loc_hash + " #Jobs #PeelJobs"
+        job_name = job_name + skill_hash + loc_hash + " #Jobs #Bubbas"
         twitter_status = (
-            job_name + "  http://peeljobs.com" + str(job_post.get_absolute_url())
+            job_name + "  http://Bubbas.com" + str(job_post.get_absolute_url())
         )
         try:
             response = twitter.update_status(status=twitter_status)
@@ -774,7 +774,7 @@ def get_conditions(user):
 #         # sending an email
 #         c = {"job_posts": jobposts, "user": user}
 #         t = loader.get_template("email/applicant.html")
-#         subject = "Update Your Profile To Get Top Matching Jobs - PeelJobs"
+#         subject = "Update Your Profile To Get Top Matching Jobs - Bubbas"
 #         rendered = t.render(c)
 #         mto = [user.email]
 #         user_active = True if user.is_active else False
@@ -1137,7 +1137,7 @@ def daily_report():
 
     for each in users:
         temp = loader.get_template("email/daily_report.html")
-        subject = "Peeljobs Daily Report For " + formatted_date
+        subject = "Bubbas Daily Report For " + formatted_date
         mto = [each]
         rendered = temp.render(data)
         send_email.delay(mto, subject, rendered)
@@ -1157,7 +1157,7 @@ def daily_report():
 #             hours=2
 #         ):
 #             temp = loader.get_template("email/user_profile_alert.html")
-#             subject = "Update Your Profile To Get Top Matching Jobs - Peeljobs"
+#             subject = "Update Your Profile To Get Top Matching Jobs - Bubbas"
 #             mto = [user.email]
 #             rendered = temp.render({"user": user})
 #             user_active = True if user.is_active else False
@@ -1187,13 +1187,13 @@ def applicants_profile_update_notifications():
                 job_posts = JobPost.objects.filter(status="Live")[:15]
             temp = loader.get_template("email/user_profile_alert.html")
             if days == 4:
-                subject = "Recruiters are unable to contact you - Peeljobs"
+                subject = "Recruiters are unable to contact you - Bubbas"
             if days == 6:
                 subject = (
-                    "Your Peeljobs account is missing Critical Information - Peeljobs"
+                    "Your Bubbas account is missing Critical Information - Bubbas"
                 )
             else:
-                subject = "Update Your Profile To Get Top Matching Jobs - Peeljobs"
+                subject = "Update Your Profile To Get Top Matching Jobs - Bubbas"
             rendered = temp.render({"user": each, "job_posts": job_posts})
             user_active = True if each.is_active else False
             mto = [each.email]
@@ -1211,7 +1211,7 @@ def applicants_profile_update_notifications():
     #     days = (datetime.today() - user.date_joined).days
     #     if days == 2 or days % 10 == 0:
     #         temp = loader.get_template("email/account_inactive.html")
-    #         subject = "Update Your Profile - Peeljobs"
+    #         subject = "Update Your Profile - Bubbas"
     #         rendered = temp.render({"user": user})
     #         mto = [user.email]
     #         send_email.delay(mto, subject, rendered)
@@ -1227,7 +1227,7 @@ def applicants_profile_update_notifications():
     )
     for user in users:
         temp = loader.get_template("email/user_profile_alert.html")
-        subject = "Upload your Resume/cv - Peeljobs"
+        subject = "Upload your Resume/cv - Bubbas"
         rendered = temp.render({"user": user, "resume_update": True})
         user_active = True if user.is_active else False
         mto = [user.email]
@@ -1247,7 +1247,7 @@ def recruiter_profile_update_notifications():
     )
     for recruiter in recruiters:
         temp = loader.get_template("email/user_profile_alert.html")
-        subject = "Update Your Profile To Get More Applicants - Peeljobs"
+        subject = "Update Your Profile To Get More Applicants - Bubbas"
         mto = [recruiter.email]
         rendered = temp.render({"user": recruiter, "recruiter": True})
         user_active = True if recruiter.is_active else False
@@ -1264,7 +1264,7 @@ def applicants_all_job_notifications():
     for each in today_applicants:
         job_posts = each.related_jobs()
         temp = loader.get_template("email/applicant.html")
-        subject = "Top matching jobs for you - Peeljobs"
+        subject = "Top matching jobs for you - Bubbas"
         mto = [each.email]
         rendered = temp.render({"job_posts": job_posts[:10], "user": each})
         user_active = True if each.is_active else False
@@ -1290,7 +1290,7 @@ def applicants_job_notifications():
         if len(job_posts) < 10:
             job_posts = list(job_posts) + list(JobPost.objects.filter(status="Live"))
         temp = loader.get_template("email/applicant.html")
-        subject = "Top matching jobs for you - Peeljobs"
+        subject = "Top matching jobs for you - Bubbas"
         mto = [user.email]
         rendered = temp.render({"jobposts": job_posts[:10], "user": user})
         user_active = True if user.is_active else False
@@ -1309,7 +1309,7 @@ def applicants_job_notifications():
 #     )
 #     for user in users:
 #         temp = loader.get_template("email/user_profile_alert.html")
-#         subject = "Update Your Profile To Get Top Matching Jobs - PeelJobs"
+#         subject = "Update Your Profile To Get Top Matching Jobs - Bubbas"
 #         mto = [user.email]
 #         rendered = temp.render({"user": user, "inactive_user": True})
 #         user_active = True if user.is_active else False
@@ -1325,7 +1325,7 @@ def applicants_job_notifications():
 #     )
 #     for recruiter in recruiters:
 #         temp = loader.get_template("email/user_profile_alert.html")
-#         subject = "Update Your Profile To Post Unlimited Jobs - PeelJobs"
+#         subject = "Update Your Profile To Post Unlimited Jobs - Bubbas"
 #         mto = [recruiter.email]
 #         rendered = temp.render(
 #             {"user": recruiter, "recruiter": True, "inactive_user": True}
@@ -1341,7 +1341,7 @@ def applicants_job_notifications():
 #         temp = loader.get_template("email/birthdays.html")
 #         subject = (
 #             "=?UTF-8?Q?=F0=9F=8E=82?="
-#             + " Birthday Wishes - Peeljobs "
+#             + " Birthday Wishes - Bubbas "
 #             + "=?UTF-8?Q?=F0=9F=8E=82?="
 #         )
 #         rendered = temp.render({"user": user})
@@ -1364,7 +1364,7 @@ def sitemap_generation():
 
     xml_cont = (
         xml_cont
-        + "<url><loc>https://peeljobs.com/</loc>"
+        + "<url><loc>https://Bubbas.com/</loc>"
         + "<changefreq>always</changefreq><priority>1.0</priority></url>"
     )
 
@@ -1375,7 +1375,7 @@ def sitemap_generation():
     jobs = JobPost.objects.filter(status="Live")
     for job in jobs:
         jobs_xml_cont = (
-            jobs_xml_cont + "<url><loc>https://peeljobs.com" + job.slug + end_url
+            jobs_xml_cont + "<url><loc>https://Bubbas.com" + job.slug + end_url
         )
 
     jobs_xml_cont = jobs_xml_cont + "</urlset>"
@@ -1397,14 +1397,14 @@ def sitemap_generation():
         if jobs > 0:
             skills_xml_cont = (
                 skills_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://Bubbas.com"
                 + skill.get_job_url()
                 + end_url
             )
         else:
             no_job_skills_xml_cont = (
                 no_job_skills_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://Bubbas.com"
                 + skill.get_job_url()
                 + end_url
             )
@@ -1427,14 +1427,14 @@ def sitemap_generation():
         if jobs > 0:
             locations_xml_cont = (
                 locations_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://Bubbas.com"
                 + location.get_job_url()
                 + end_url
             )
         else:
             no_job_locations_xml_cont = (
                 no_job_locations_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://Bubbas.com"
                 + location.get_job_url()
                 + end_url
             )
@@ -1456,7 +1456,7 @@ def sitemap_generation():
     for industry in industries:
         industries_xml_cont = (
             industries_xml_cont
-            + "<url><loc>https://peeljobs.com"
+            + "<url><loc>https://Bubbas.com"
             + industry.get_job_url()
             + end_url
         )
@@ -1478,7 +1478,7 @@ def sitemap_generation():
     for internship in internships:
         internship_xml_cont = (
             internship_xml_cont
-            + "<url><loc>https://peeljobs.com/internship-jobs-in-"
+            + "<url><loc>https://Bubbas.com/internship-jobs-in-"
             + internship.slug
             + "/"
             + end_url
@@ -1499,7 +1499,7 @@ def sitemap_generation():
         if jobs > 0:
             skills_walkin_xml_cont = (
                 skills_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + str(skill.slug)
                 + "-walkins/"
                 + end_url
@@ -1507,7 +1507,7 @@ def sitemap_generation():
         else:
             no_job_skills_walkin_xml_cont = (
                 no_job_skills_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + str(skill.slug)
                 + "-walkins/"
                 + end_url
@@ -1541,7 +1541,7 @@ def sitemap_generation():
                 if jobs > 0:
                     skills_locations_xml_cont = (
                         skills_locations_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-jobs-in-"
                         + str(location.slug)
@@ -1551,7 +1551,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_locations_xml_cont = (
                         no_job_skills_locations_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-jobs-in-"
                         + str(location.slug)
@@ -1561,7 +1561,7 @@ def sitemap_generation():
                 if walkins > 0:
                     skills_locations_walkins_xml_cont = (
                         skills_locations_walkins_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-walkins-in-"
                         + str(location.slug)
@@ -1571,7 +1571,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_locations_walkins_xml_cont = (
                         no_job_skills_locations_walkins_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-walkins-in-"
                         + str(location.slug)
@@ -1623,7 +1623,7 @@ def sitemap_generation():
                 if jobs > 0:
                     skills_location_fresher_xml_cont = (
                         skills_location_fresher_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-fresher-jobs-in-"
                         + str(location.slug)
@@ -1633,7 +1633,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_location_fresher_xml_cont = (
                         no_job_skills_location_fresher_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://Bubbas.com/"
                         + str(skill.slug)
                         + "-fresher-jobs-in-"
                         + str(location.slug)
@@ -1677,7 +1677,7 @@ def sitemap_generation():
         if walkins > 0:
             locations_walkin_xml_cont = (
                 locations_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + "walkins-in-"
                 + str(each.slug)
                 + "/"
@@ -1686,7 +1686,7 @@ def sitemap_generation():
         else:
             no_job_locations_walkin_xml_cont = (
                 no_job_locations_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + "walkins-in-"
                 + str(each.slug)
                 + "/"
@@ -1695,7 +1695,7 @@ def sitemap_generation():
         if fresher_jobs > 0:
             locations_fresher_jobs_xml_cont = (
                 locations_fresher_jobs_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + "fresher-jobs-in-"
                 + str(each.slug)
                 + "/"
@@ -1704,7 +1704,7 @@ def sitemap_generation():
         else:
             no_job_locations_fresher_jobs_xml_cont = (
                 no_job_locations_fresher_jobs_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + "fresher-jobs-in-"
                 + str(each.slug)
                 + "/"
@@ -1740,7 +1740,7 @@ def sitemap_generation():
     for state in states:
         states_jobs_xml_count = (
             states_jobs_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://Bubbas.com/"
             + "jobs-in-"
             + str(state.slug)
             + "/"
@@ -1748,7 +1748,7 @@ def sitemap_generation():
         )
         states_walkins_xml_count = (
             states_walkins_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://Bubbas.com/"
             + "walkins-in-"
             + str(state.slug)
             + "/"
@@ -1756,7 +1756,7 @@ def sitemap_generation():
         )
         states_fresher_jobs_xml_count = (
             states_fresher_jobs_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://Bubbas.com/"
             + "fresher-jobs-in-"
             + str(state.slug)
             + "/"
@@ -1781,7 +1781,7 @@ def sitemap_generation():
         if jobs > 0:
             skills_fresher_xml_cont = (
                 skills_fresher_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + str(skill.slug)
                 + "-fresher-jobs/"
                 + end_url
@@ -1789,7 +1789,7 @@ def sitemap_generation():
         else:
             no_job_skills_fresher_xml_cont = (
                 no_job_skills_fresher_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://Bubbas.com/"
                 + str(skill.slug)
                 + "-fresher-jobs/"
                 + end_url
@@ -1811,7 +1811,7 @@ def sitemap_generation():
     for edu in educations:
         educations_xml_cont = (
             educations_xml_cont
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://Bubbas.com/"
             + str(edu.slug)
             + "-jobs/"
             + end_url
@@ -1830,7 +1830,7 @@ def sitemap_generation():
     for recruiter in recruiters:
         recruiters_xml_cont = (
             recruiters_xml_cont
-            + "<url><loc>https://peeljobs.com/recruiters/"
+            + "<url><loc>https://Bubbas.com/recruiters/"
             + str(recruiter.username)
             + "/"
             + end_url
@@ -1850,7 +1850,7 @@ def sitemap_generation():
     for company in companies:
         companies_xml_cont = (
             companies_xml_cont
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://Bubbas.com/"
             + str(company.slug)
             + "-job-openings/"
             + end_url
@@ -1871,59 +1871,59 @@ def sitemap_generation():
     no_pages = int(math.ceil(float(len(jobposts)) / items_per_page))
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/sitemap/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/sitemap/" + end_url
     )
 
     for each in range(1, no_pages):
         pages_xml_cont = (
             pages_xml_cont
-            + "<url><loc>https://peeljobs.com/sitemap/"
+            + "<url><loc>https://Bubbas.com/sitemap/"
             + str(each)
             + "/"
             + end_url
         )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/post-job/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/post-job/" + end_url
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/internship-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/internship-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/government-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/government-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/full-time-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/full-time-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/walkin-jobs/" + end_url
-    )
-
-    pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/alert/list/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/walkin-jobs/" + end_url
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-location/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/alert/list/" + end_url
+    )
+
+    pages_xml_cont = (
+        pages_xml_cont + "<url><loc>https://Bubbas.com/jobs-by-location/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-skill/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/jobs-by-skill/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-industry/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/jobs-by-industry/" + end_url
     )
 
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/calendar/"
+        + "<url><loc>https://Bubbas.com/calendar/"
         + str(datetime.now().year)
         + "/"
         + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/calendar/"
+        + "<url><loc>https://Bubbas.com/calendar/"
         + str(datetime.now().year)
         + "/month/"
         + str(datetime.now().month)
@@ -1932,51 +1932,51 @@ def sitemap_generation():
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/about-us/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/page/about-us/" + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/page/terms-conditions/"
+        + "<url><loc>https://Bubbas.com/page/terms-conditions/"
         + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/privacy-policy/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/page/privacy-policy/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/contact-us/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/page/contact-us/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/faq/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/page/faq/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/recruiter-faq/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/page/recruiter-faq/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/recruiters/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/recruiters/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/companies/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/companies/" + end_url
     )
-    pages_xml_cont = pages_xml_cont + "<url><loc>https://peeljobs.com/jobs/" + end_url
+    pages_xml_cont = pages_xml_cont + "<url><loc>https://Bubbas.com/jobs/" + end_url
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/fresher-jobs-by-skills/"
+        + "<url><loc>https://Bubbas.com/fresher-jobs-by-skills/"
         + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/walkin-jobs-by-skills/"
+        + "<url><loc>https://Bubbas.com/walkin-jobs-by-skills/"
         + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/walkins-by-location/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/walkins-by-location/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-degree/" + end_url
+        pages_xml_cont + "<url><loc>https://Bubbas.com/jobs-by-degree/" + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/fresher-jobs-by-location/"
+        + "<url><loc>https://Bubbas.com/fresher-jobs-by-location/"
         + end_url
     )
 
@@ -1994,13 +1994,13 @@ def sitemap_generation():
 
     xml_cont = (
         xml_cont
-        + "<url><loc>https://peeljobs.com/</loc>"
+        + "<url><loc>https://Bubbas.com/</loc>"
         + "<changefreq>always</changefreq><priority>1.0</priority></url>"
     )
     for d in os.listdir(directory):
         if d.endswith(".xml") and not d.endswith("sitemap.xml"):
             xml_cont = (
-                xml_cont + "<url><loc>https://peeljobs.com/sitemap/" + str(d) + end_url
+                xml_cont + "<url><loc>https://Bubbas.com/sitemap/" + str(d) + end_url
             )
 
     xml_cont = xml_cont + "</urlset>"

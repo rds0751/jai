@@ -3,13 +3,13 @@
 
 {% load page_tags %}
 {% block block_canonical %}
-<link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+<link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 
 {% block block_title %}
-  <title>Sitemap {{current_page}} - PeelJobs</title>
+  <title>Sitemap {{current_page}} - Bubbas</title>
 
-  <meta name="description" content="Peeljobs sitemap {{current_page}} to browse all the jobs by location, skills, industry etc."/>
+  <meta name="description" content="Bubbas sitemap {{current_page}} to browse all the jobs by location, skills, industry etc."/>
 
 {% endblock %}
 {% block page_search_block %}
@@ -25,52 +25,52 @@
             <div class="col-md-12 col-sm-12 sitemap">
 				<ul>
 				    {% if current_page == 1  %} 
-				    <li><a href='https://peeljobs.com/'>Home</a></li>
+				    <li><a href='https://Bubbas.com/'>Home</a></li>
 				    <li><a href="{% url 'pages' 'about-us' %}">About</a></li>
 				    <li><a href="{% url 'pages' 'terms-conditions' %}">Terms & Conditions</a></li>
 				    <li><a href="{% url 'pages' 'privacy-policy' %}">Privacy Policy</a></li>
 				    <li><a href="{% url 'contact' %}">Contact Us</a></li>
 				    <li><a href="{% url 'pages' 'recruiter-faq' %}">Recruiter FAQ</a></li>
 				    <li><a href="{% url 'pages' 'faq' %}">Job Seeker FAQ</a></li>
-				    <li><a href="{% url 'jobs:index' %}">View All Jobs</a></li>
+				    <li><a href="{% url 'jobs:index' %}">View All Profiles</a></li>
 				    <li><a href="{% url 'post_job' %}">Post Job</a></li>
 				    <li class="sitemap-parent"><a href="{% url 'jobs_by_location' 'jobs' %}">Locations</a></li>
 			        {% for location in locations %}
-				       <li class="sitemap-child"><a href="{{ location.get_job_url }}">Jobs in {{ location.name }}</a>
+				       <li class="sitemap-child"><a href="{{ location.get_job_url }}">Profiles in {{ location.name }}</a>
 				       </li>
 				    {% endfor %}
 				    {% elif current_page == 2  %}
-				    <li class="sitemap-parent"><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" >Freshers Jobs</a></li>
+				    <li class="sitemap-parent"><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}" >Freshers Profiles</a></li>
 			        {% for skill in skills %}
-				       <li class="sitemap-child"><a href="{% url 'skill_fresher_jobs' skill.slug %}">{{ skill.name }} Fresher Jobs</a></li>
+				       <li class="sitemap-child"><a href="{% url 'skill_fresher_jobs' skill.slug %}">{{ skill.name }} Fresher Profiles</a></li>
 				    {% endfor %}
-				    <li class="sitemap-parent"><a>Jobs by Education</a></li>
+				    <li class="sitemap-parent"><a>Profiles by Education</a></li>
 			        {% for edu in educations %}
-				       <li class="sitemap-child"><a href="{% url 'job_skills' edu.slug %}">{{ edu.name }} Jobs</a></li>
+				       <li class="sitemap-child"><a href="{% url 'job_skills' edu.slug %}">{{ edu.name }} Profiles</a></li>
 				    {% endfor %}
-				    <li class="sitemap-parent"><a href="#">State Wise Jobs</a></li>
+				    <li class="sitemap-parent"><a href="#">State Wise Profiles</a></li>
 				    {% for state in states %}
-				    	<li class="sitemap-child"><a href="{% url 'job_locations' state.slug %}">Jobs in {{ state.name }}</a></li>
+				    	<li class="sitemap-child"><a href="{% url 'job_locations' state.slug %}">Profiles in {{ state.name }}</a></li>
 				    {% endfor %}
 				    {% for state in states %}
 				    	<li class="sitemap-child"><a href="{% url 'location_walkin_jobs' state.slug %}">Walkins in {{ state.name }}</a></li>
 				    {% endfor %}
 				    {% for state in states %}
-				    	<li class="sitemap-child"><a href="{% url 'location_fresher_jobs' state.slug %}">Fresher Jobs in {{ state.name }}</a></li>
+				    	<li class="sitemap-child"><a href="{% url 'location_fresher_jobs' state.slug %}">Fresher Profiles in {{ state.name }}</a></li>
 				    {% endfor %}
 				    {% elif current_page == 3  %}
-				    <li class="sitemap-parent"><a href="{% url 'jobs_by_location' 'jobs' %}">Location Wise Jobs</a></li>
+				    <li class="sitemap-parent"><a href="{% url 'jobs_by_location' 'jobs' %}">Location Wise Profiles</a></li>
 				    {% for location in locations %}
 			        	{% for skill in skills %}
 					       <li class="sitemap-child">
 					       	<a href="{% url 'skill_location_wise_fresher_jobs' skill.slug location.slug %}">
-					       	{{ skill.name }} Fresher Jobs in {{ location.name }}</a></li>
-					       <li class="sitemap-child"><a href="{% url 'custome_search' skill.slug location.slug %}">{{ skill.name }} Jobs in {{ location.name }}</a></li>
+					       	{{ skill.name }} Fresher Profiles in {{ location.name }}</a></li>
+					       <li class="sitemap-child"><a href="{% url 'custome_search' skill.slug location.slug %}">{{ skill.name }} Profiles in {{ location.name }}</a></li>
 					    {% endfor %}
 				    {% endfor %}
-				    <li class="sitemap-parent"><a href="{% url 'jobs_by_location' 'fresher-jobs' %}">Fresher Jobs by Locations</a></li>
+				    <li class="sitemap-parent"><a href="{% url 'jobs_by_location' 'fresher-jobs' %}">Fresher Profiles by Locations</a></li>
 				    {% for location in locations %}
-				       <li class="sitemap-child"><a href="{% url 'location_fresher_jobs' location.slug %}">Fresher Jobs in {{ location.name }}</a></li>
+				       <li class="sitemap-child"><a href="{% url 'location_fresher_jobs' location.slug %}">Fresher Profiles in {{ location.name }}</a></li>
 				    {% endfor %}
 				    {% elif current_page == 4  %}
 
@@ -91,14 +91,14 @@
 				    {% elif current_page == 5  %}
 					<li class="sitemap-parent"><a href="{% url 'jobs_by_skill' %}">Skills</a></li>
 			        {% for skill in skills %}
-				       <li class="sitemap-child"><a href="{{ skill.get_job_url }}">Jobs For {{ skill.name }}</a></li>
+				       <li class="sitemap-child"><a href="{{ skill.get_job_url }}">Profiles For {{ skill.name }}</a></li>
 				    {% endfor %}
 
 				    {% elif current_page == 6 %}
 					<li class="sitemap-parent"><a href="{% url 'jobs_by_industry' %}">Industry</a></li>
 				    {% get_all_industries as industries %}
 			        {% for industry in industries %}
-				       <li class="sitemap-child"><a href="{% url 'job_industries' industry.slug %}">Jobs For {{ industry.name }}</a></li>
+				       <li class="sitemap-child"><a href="{% url 'job_industries' industry.slug %}">Profiles For {{ industry.name }}</a></li>
 				    {% endfor %}
 				    {% elif current_page == 7  %}
 				    <li class="sitemap-parent"><a href="{% url 'internship_jobs' %}">Internships</a></li>
@@ -109,7 +109,7 @@
 				    {% else %}
 
 				    {% if jobposts|get_object_list_type:"full-time" %}
-				       <li class="sitemap-parent"><a href="{% url 'full_time_jobs' %}">Full Time Jobs</a></li>
+				       <li class="sitemap-parent"><a href="{% url 'full_time_jobs' %}">Full Time Profiles</a></li>
 				    {% endif %}
 				    {% for post in jobposts %}
 				    {% if post|get_job_type == 'full-time' %}
@@ -119,7 +119,7 @@
 
 
 				    {% if jobposts|get_object_list_type:"internship" %}
-				    <li class="sitemap-parent"><a href="{% url 'internship_jobs' %}">Internship Jobs</a></li>
+				    <li class="sitemap-parent"><a href="{% url 'internship_jobs' %}">Internship Profiles</a></li>
 				    {% endif %}
 				    {% for post in jobposts %}
 				    {% if post|get_job_type == 'internship' %}
@@ -137,7 +137,7 @@
 				    {% endfor %}
 
 				    {% if jobposts|get_object_list_type:"government" %}
-				       <li class="sitemap-parent"><a href="{% url 'government_jobs' %}">Government Jobs</a></li>
+				       <li class="sitemap-parent"><a href="{% url 'government_jobs' %}">Government Profiles</a></li>
 				    {% endif %}
 				    {% for post in jobposts %}
 				    {% if post|get_job_type == 'government' %}

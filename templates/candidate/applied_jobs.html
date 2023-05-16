@@ -4,15 +4,15 @@
 {% load page_tags %}
 {% load tz %}
 {% block block_canonical %}
-<link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+<link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 
 {% block block_title %}
-  <title>Profile - Apply Jobs - Free Job Posting - Job Vacancies - Job search in India - PeelJobs</title>
+  <title>Profile - Apply Profiles - Free Job Posting - Job Vacancies - Job search in India - Bubbas</title>
 
-  <meta name="description" content="Profile - Apply Jobs - PeelJobs - Free Job posting. Search & Apply for Full Time, Internship,  Walk In Jobs. Fill Your Profile to receive email notifications. "/>
+  <meta name="description" content="Profile - Apply Profiles - Bubbas - Free Job posting. Search & Apply for Full Time, Internship,  Walk In Profiles. Fill Your Profile to receive email notifications. "/>
 
-  <meta name="Keywords" content="job, jobs, tech jobs, it jobs, job sites, job vacancies, find jobs, search jobs, resume tips, job search engines, careers, technology jobs, career search, job descriptions, employment, work, job listings, peeljobs.com" />
+  <meta name="Keywords" content="job, jobs, tech jobs, it jobs, job sites, job vacancies, find jobs, search jobs, resume tips, job search engines, careers, technology jobs, career search, job descriptions, employment, work, job listings, Bubbas.com" />
 {% endblock %}
 
 {% block page_search_block %}
@@ -50,7 +50,7 @@
                 <div class="profile_job_list">
                   <div class="job_list_section" id="div_applied_jobs">
                   <div class="profile_detail_block" style="margin-bottom:-10px"  >
-                    <div class="head">Applied Jobs  {% if applied_jobs %}
+                    <div class="head">Applied Profiles  {% if applied_jobs %}
                     <span class="pull-right">
                     {% if current_page|slugify == '1'|slugify %}
                       {% if applied_jobs|length == 10%}
@@ -120,11 +120,11 @@
                   {% else %}
                     <div class="job_item" style="min-height:100px">
                        <div class="detail_each_wrap text-center">
-                        <h3> You Haven't Applied For Any Jobs</h3>
+                        <h3> You Haven't Applied For Any Profiles</h3>
                       </div>
                     </div>
                     <div class="job_list_section">
-                     <h3 class="text-center" style="color:#45586d"><b>Suggested Jobs</b></h3>
+                     <h3 class="text-center" style="color:#45586d"><b>Suggested Profiles</b></h3>
                {% include 'company_job_list.html' with job_list=suggested_jobs %}
                 <br clear="all">
               </div>

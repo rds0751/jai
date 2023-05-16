@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PeelJobs Admin</title>
+    <title>Bubbas Admin</title>
     <link rel="icon" type="image/x-icon" href="{{logo}}"/>
     <!-- FONT-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,7 +42,7 @@
                     </span>
                     <span class="text_logo">
                     <span style="color: rgb(96, 125, 189); font-size: 23px;">Peel</span>
-                    <span style="color: rgb(194, 85, 85); font-size: 23px;">Jobs</span>
+                    <span style="color: rgb(194, 85, 85); font-size: 23px;">Profiles</span>
                     </span>
               </div>
               <div class="top_menu">
@@ -107,7 +107,7 @@
               <li><a href="{% url 'dashboard:job_posts' 'full-time' %}"  class="menu_item"><i class='fa fa-caret-right'></i>Full Time</a></li>
               <li><a href="{% url 'dashboard:job_posts' 'internship' %}" class="menu_item"><i class='fa fa-caret-right'></i>Internship</a></li>
               <li><a href="{% url 'dashboard:job_posts' 'walk-in' %}" class="menu_item"><i class='fa fa-caret-right'></i>Walk-in</a></li>
-              <li><a href="{% url 'dashboard:job_posts' 'government' %}" class="menu_item"><i class='fa fa-caret-right'></i>Government Jobs</a></li>
+              <li><a href="{% url 'dashboard:job_posts' 'government' %}" class="menu_item"><i class='fa fa-caret-right'></i>Government Profiles</a></li>
                 </ul>
             </li>
             <li {% ifequal request.session.url_id 'applicant' %}class="active_menu"{% endifequal %}><a

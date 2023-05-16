@@ -6,12 +6,12 @@ deploy_live:
   environment:
     name: live
   script:
-    - sudo /bin/rm -rf /home/peeljobs/peeljobs/; cp -r . /home/peeljobs/peeljobs
-    - source /home/peeljobs/env/bin/activate
-    - pip install -r /home/peeljobs/peeljobs/requirements.txt
-    - python /home/peeljobs/peeljobs/manage_server.py migrate --noinput
+    - sudo /bin/rm -rf /home/Bubbas/Bubbas/; cp -r . /home/Bubbas/Bubbas
+    - source /home/Bubbas/env/bin/activate
+    - pip install -r /home/Bubbas/Bubbas/requirements.txt
+    - python /home/Bubbas/Bubbas/manage_server.py migrate --noinput
     - sudo /usr/bin/supervisorctl restart all
   tags:
-    - peeljobs-live
+    - Bubbas-live
   only:
     - master

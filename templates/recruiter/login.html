@@ -16,7 +16,7 @@
 </script>
     <title>{{ meta_title|safe }}</title>
     <meta name="description" content="{{ meta_description|safe }}"/>
-    <meta property="og:url" content="https://peeljobs.com{{ request.path }}" />
+    <meta property="og:url" content="https://Bubbas.com{{ request.path }}" />
    <meta property="og:title"  content="{{ meta_title|safe }}"/>
   <meta property="og:description"  content="{{ meta_description|safe }}"/>
   <meta property="og:image"  content="{{jobopenings}}"/>
@@ -91,7 +91,7 @@
          <div class="header_panel">
           <nav class="navbar navbar-expand-lg megamenu py-3">
             <div class="container">
-               <a class="navbar-brand" href="/">Peeljobs</a>
+               <a class="navbar-brand" href="/">Bubbas</a>
 
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -113,27 +113,27 @@
                   
                   <li class="dropdown megamenu-fw">
                     <a href="{% url 'jobs:index' %}" class="dropdown-toggle latest-jobs" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false">Latest Jobs<span class="caret"></span></a>
+                    aria-expanded="false">Latest Profiles<span class="caret"></span></a>
         
                     <ul class="dropdown-menu megamenu-content" role="menu">
                     <li>
                       <ul class="col-md-2 information" style="width:19.99%">
                         <li><a href="{% url 'jobs_by_skill' %}">Skills</a></li>
                         {% for skill in total_skills %}
-                        <li><a href="{{ skill.get_job_url }}">{{ skill.name|truncatewords:2 }} Jobs</a></li>
+                        <li><a href="{{ skill.get_job_url }}">{{ skill.name|truncatewords:2 }} Profiles</a></li>
                         {% endfor %}
                       </ul>
                       <ul class="col-md-2 information industries_parts">
                         <li><a href="{% url 'jobs_by_industry' %}">Industry</a></li>
                         {% for industry in total_industries %}
-                        <li><a href="">{{ industry.name|get_industry_name }} Jobs</a></li>
+                        <li><a href="">{{ industry.name|get_industry_name }} Profiles</a></li>
                         
                         {% endfor %}
                       </ul>
                       <ul class="col-md-2 information location_parts">
                         <li><a href="{% url 'jobs_by_location' 'jobs' %}">Location</a></li>
                           {% for location in total_locations|slice:"17" %}
-                            <li><a href="{{ location.get_job_url }}">Jobs in {{ location.name }}</a></li>
+                            <li><a href="{{ location.get_job_url }}">Profiles in {{ location.name }}</a></li>
                           {% endfor %}
                       </ul>
                       <!--
@@ -149,23 +149,23 @@
                       <ul class="col-md-3 information internship_parts" style="width: 19.99% !important;">
                         <li><a href="{% url 'internship_jobs' %}">Internship</a></li>
                         {% for city in all_internship_jobs %}
-                        <li><a href="{% url 'city_internship_jobs' city.slug %}">Internship Jobs in {{ city.name }}</a></li>
+                        <li><a href="{% url 'city_internship_jobs' city.slug %}">Internship Profiles in {{ city.name }}</a></li>
                         {% endfor %}
                       </ul>
                       <ul class="col-md-3 information fresher-jobs-part">
                         <li><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">Fresher</a></li>
                         {% for skill in total_skills %}
-                        <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Fresher Jobs</a></li>
+                        <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Fresher Profiles</a></li>
                         {% endfor %}
                       </ul>
                       </li>
                     </ul>
                   </li>
                 
-                  <li {% if request.path == '/fresher-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">Fresher Jobs <span class="sr-only">(current)</span></a></li>
-                   <li {% if request.path == '/walkin-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}">Walkin Jobs <span class="sr-only">(current)</span></a></li>
+                  <li {% if request.path == '/fresher-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">Fresher Profiles <span class="sr-only">(current)</span></a></li>
+                   <li {% if request.path == '/walkin-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}">Walkin Profiles <span class="sr-only">(current)</span></a></li>
                   {% if request.user.user_type == 'JS' %}
-                  <li><a href="{% url 'jobs:jobs_applied' %}">Applied Jobs</a></li>
+                  <li><a href="{% url 'jobs:jobs_applied' %}">Applied Profiles</a></li>
                   {% endif %}
                   <li {% if request.path == '/internship-jobs/' %}class="active"{% endif %}>
                     <a href="{% url 'internship_jobs'%}">Internship</a>
@@ -192,7 +192,7 @@
                       {% elif request.user.photo %}
                         <img class="profile_picture" src="{{request.user.photo}}" >
                       {% else %}
-                        <img class="profile_picture" src="https://cdn.peeljobs.com/dummy.jpg">
+                        <img class="profile_picture" src="https://cdn.Bubbas.com/dummy.jpg">
                       {% endif %}
                       </span>
                     </li>
@@ -207,7 +207,7 @@
                 </ul>
                 {% if not request.user.is_authenticated %}
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
-                  <li class="jobseeker_auth"><!-- <a href="" class="login_modal">Jobseeker Login</a> -->
+                  <li class="jobseeker_auth"><!-- <a href="" class="login_modal">Profileseeker Login</a> -->
                     <!-- <span class="title">Job Seeker</span>
                     <div class="items">
                       <a href="#" class="login_modal" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
@@ -262,7 +262,7 @@
                   <div class="col-md-8 banner-left">
                     <h3 class="card-title">Recruit the best candidates </h3>
                     <ul class="list-inline">
-                      <li>Post unlimited free jobs on peeljobs in distinct sectors to hire the best candidate</li>
+                      <li>Post unlimited free jobs on Bubbas in distinct sectors to hire the best candidate</li>
                       <li>Manage jobs in your social connections with one click</li>
                       <li>Hire qualified candidates for your organization</li>
                       <li>Monitor entire recruitment process</li>
@@ -281,7 +281,7 @@
                     <img src="{% static 'hire-now.png' %}"></img>
                     <br>
                     <br>
-                    <a href="{% url "recruiter:new_user" %}" class="banner_quote" target="_blank">Post Unlimited Free Jobs <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> --></a>
+                    <a href="{% url "recruiter:new_user" %}" class="banner_quote" target="_blank">Post Unlimited Free Profiles <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> --></a>
                     <!--<br>
                     <br>
                     <a href="{% url "recruiter:new_user" %}" class="banner_quote">Employer Registration <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> </a>-->
@@ -311,13 +311,13 @@
                     <div class="card-body">
                       <h4 class="sub_heading">Companies Hiring Through us</h4>
                       <ul class="logo_list">
-                        <li><a href="/ibm-india-pvt-limited-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/76911fad9bcee03a5e0b5ec2906077bf/ibm-india-pvt-limited" alt="ibm-india-pvt-limited" /></a></li>
-                        <li><a href="/infosys-multinational-private-limited-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/fc8c15f8fb5f213c8de5efeb06f3e415/infosys-multinational-private-limited" alt="infosys-multinational-private-limited"/></a></li>
-                        <li><a href="/tcs-pvt-ltd-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/8e2f704ea031ed8598f76c83bcfd30d8/tcs-pvt-ltd" alt="tcs-pvt-ltd"/></a></li>
-                        <li><a href="/accenture-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/244348b91bdf2204f68b23c5f3d57847/accenture" alt="accenture"/></a></li>
-                        <li><a href="/tech-mahindra-private-limited-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/0d468c133458c052822139573dc149e4/tech-mahindra-private-limited" alt="tech-mahindra-private-limited"/></a></li>
-                        <li><a href="/cognizant-technology-solutions-india-ltd-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/01859d2fd7dc39960bfc8e5eac6d5647/cognizant-technology-solutions-india-ltd" alt="cognizant-technology-solutions-india-ltd" /></a></li>
-                        <li><a href="/dell-private-limited-job-openings/" target="_blank"><img src="https://peeljobs.s3.amazonaws.com/company/logo/c08568f1d9941ca6c11d0cae504ba059/dell-private-limited" alt="dell-private-limited"/></a></li>
+                        <li><a href="/ibm-india-pvt-limited-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/76911fad9bcee03a5e0b5ec2906077bf/ibm-india-pvt-limited" alt="ibm-india-pvt-limited" /></a></li>
+                        <li><a href="/infosys-multinational-private-limited-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/fc8c15f8fb5f213c8de5efeb06f3e415/infosys-multinational-private-limited" alt="infosys-multinational-private-limited"/></a></li>
+                        <li><a href="/tcs-pvt-ltd-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/8e2f704ea031ed8598f76c83bcfd30d8/tcs-pvt-ltd" alt="tcs-pvt-ltd"/></a></li>
+                        <li><a href="/accenture-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/244348b91bdf2204f68b23c5f3d57847/accenture" alt="accenture"/></a></li>
+                        <li><a href="/tech-mahindra-private-limited-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/0d468c133458c052822139573dc149e4/tech-mahindra-private-limited" alt="tech-mahindra-private-limited"/></a></li>
+                        <li><a href="/cognizant-technology-solutions-india-ltd-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/01859d2fd7dc39960bfc8e5eac6d5647/cognizant-technology-solutions-india-ltd" alt="cognizant-technology-solutions-india-ltd" /></a></li>
+                        <li><a href="/dell-private-limited-job-openings/" target="_blank"><img src="https://Bubbas.s3.amazonaws.com/company/logo/c08568f1d9941ca6c11d0cae504ba059/dell-private-limited" alt="dell-private-limited"/></a></li>
                         <br clear="all">
                       </ul>
                     </div>
@@ -328,7 +328,7 @@
           <!-- companies ends here -->
           <!-- features starts here -->
           <div class="features_block row">
-            <h3 class="my-3">How PeelJobs helps you in Recruitment</h3>
+            <h3 class="my-3">How Bubbas helps you in Recruitment</h3>
             <div class="col-md-4 feature_item text-center">
               <div class="card">
                 <div class="card-body">
@@ -469,7 +469,7 @@
                       </span>
                       <p class="help_text">doc, docx, pdf, odt - 300kb max</p>
                       <div>
-                        <input class="form-check-input" type="checkbox" name="email_notifications"> <span class="text">I agree to receive notifications from PeelJobs</span>
+                        <input class="form-check-input" type="checkbox" name="email_notifications"> <span class="text">I agree to receive notifications from Bubbas</span>
                       </div>
                     </div>
                   </div>
@@ -567,11 +567,11 @@
       <div class="container">
         <div class="col-md-2 contact text-left">
           <ul>
-            <li><a class="btn btn-primary fb_footer social" target="_blank" href="https://facebook.com/peeljobs/"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/peeljobs?trk=top_nav_home" class="btn btn-primary fb_footer social" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a class="btn btn-primary fb_footer social" target="_blank" href="https://facebook.com/Bubbas/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/Bubbas?trk=top_nav_home" class="btn btn-primary fb_footer social" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 
             <!-- <li><a class="btn btn-danger gplus_footer social" target="_blank" href="https://plus.google.com/b/105171863747311260917/105171863747311260917"><i class="fa fa-google-plus"></i></a></li> -->
-            <li><a class="btn btn-info twit_footer social" target="_blank" href="https://twitter.com/PeelJobs"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="btn btn-info twit_footer social" target="_blank" href="https://twitter.com/Bubbas"><i class="fa fa-twitter"></i></a></li>
           </ul>
         </div>
         <div class="footer_links col-md-10">
@@ -593,7 +593,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
-{% comment %} <script type="text/javascript" src="https://peeljobs.s3.amazonaws.com/static/tellme_js/feedback.min.js"></script> {% endcomment %}
+{% comment %} <script type="text/javascript" src="https://Bubbas.s3.amazonaws.com/static/tellme_js/feedback.min.js"></script> {% endcomment %}
 
 {% compress js %}
     <script type="text/javascript" src="{% static 'js/select2.min.js' %}"></script>

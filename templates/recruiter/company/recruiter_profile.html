@@ -154,10 +154,10 @@
       <!-- tabs -->
       <div class="tab_row row mt">
         <a href="{% url 'agency:company_recruiter_profile' recruiter.id %}"><span class="tab_button {% ifequal job_status "active" %}active{% endifequal %}">
-        Active Jobs
+        Active Profiles
         </span></a>
         <a href="{% url 'agency:company_recruiter_profile' recruiter.id %}?job_status=inactive"><span class="tab_button {% ifequal job_status "inactive" %}active{% endifequal %}">
-        Inactive Jobs
+        Inactive Profiles
         </span></a>
         <form name="jobtypeform" id="jobtypeform" method="get">
         <div class="pull-right checkbox_block">

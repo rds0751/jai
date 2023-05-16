@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load searchtags %}
 {% block block_title %}
-    <title>{% if meta_title %}{{ meta_title|safe }}{% else %}404 - Page Not Found - PeelJobs{% endif %}</title>
-    <meta name="description" content="{% if meta_description %}{{ meta_description|safe }}{% else %}404 - Page Not Found - Peeljobs{% endif %}"/>
+    <title>{% if meta_title %}{{ meta_title|safe }}{% else %}404 - Page Not Found - Bubbas{% endif %}</title>
+    <meta name="description" content="{% if meta_description %}{{ meta_description|safe }}{% else %}404 - Page Not Found - Bubbas{% endif %}"/>
 {% endblock %}
 {% block robot_tag %}
     {% if data_empty %}
@@ -27,7 +27,7 @@
             <div class="redirects">
                 <a href="/" class='home'>Back to Home</a>
                 <a href="{% url 'my:job_alert' %}" class='home'>Create a Job Alert</a>
-                <a href="{% url 'jobs:index' %}" class='home'>Latest Jobs</a>
+                <a href="{% url 'jobs:index' %}" class='home'>Latest Profiles</a>
             </div>
         </div>
     </div>

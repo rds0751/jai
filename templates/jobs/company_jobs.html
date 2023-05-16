@@ -6,11 +6,11 @@
 {% block block_canonical_tag %}
 {% if current_page|slugify == '1'|slugify %}
 {% else %}
-<link rel="prev" href="https://peeljobs.com{{ current_url }}{% if prev_page != 1 %}{{ prev_page }}/{% endif %}" />
+<link rel="prev" href="https://Bubbas.com{{ current_url }}{% if prev_page != 1 %}{{ prev_page }}/{% endif %}" />
 {% endif %}
 {% if current_page <= last_page %}
 {% if current_page == last_page %}{% else %}
-<link rel="next" href="https://peeljobs.com{{ current_url }}{{ current_page| add:"1" }}/" />
+<link rel="next" href="https://Bubbas.com{{ current_url }}{{ current_page| add:"1" }}/" />
 {% endif %}{% endif %}
 {% endblock %}
 {% block block_title %}
@@ -141,29 +141,29 @@
           </div>
 
           <div class="related_jobs_container">
-            <p class="head text-uppercase">{{ company.name|capfirst }} Related Jobs</p>
+            <p class="head text-uppercase">{{ company.name|capfirst }} Related Profiles</p>
             <div class="row">
               <div class="col-md-6 related_jobs_block">
-                <strong>Skill Related Jobs</strong>
+                <strong>Skill Related Profiles</strong>
                 <ul>
                 {% for skill in job_list.0.skills.all %}
-                  <li><a href="/{{skill.slug}}-jobs/">{{skill.name}} Jobs</a></li>
+                  <li><a href="/{{skill.slug}}-jobs/">{{skill.name}} Profiles</a></li>
                 {% empty %}
                   {% for skill in skills|slice:":6"  %}
-                    <li><a href="/{{skill.slug}}-jobs/">{{skill.name}} Jobs</a></li>
+                    <li><a href="/{{skill.slug}}-jobs/">{{skill.name}} Profiles</a></li>
                   {% endfor %}
                 {% endfor %}
 
                 </ul>
               </div>
               <div class="col-md-6 related_jobs_block">
-                <strong>Industry related Jobs</strong>
+                <strong>Industry related Profiles</strong>
                 <ul>
                   {% for industry in job_list.0.industry.all %}
-                    <li><a href="/{{industry.slug}}-industry-jobs/">{{industry.name}} Jobs</a></li>
+                    <li><a href="/{{industry.slug}}-industry-jobs/">{{industry.name}} Profiles</a></li>
                     {% empty %}
                       {% for industry in industries|slice:":6"  %}
-                        <li><a href="/{{industry.slug}}-industry-jobs/">{{industry.name}} Jobs</a></li>
+                        <li><a href="/{{industry.slug}}-industry-jobs/">{{industry.name}} Profiles</a></li>
                       {% endfor %}
                   {% endfor %}
                 </ul>
@@ -180,7 +180,7 @@
 <div class="col-md-3 right_container">
   <!-- upload_btn_block starts here -->
   <div class="similar_job_posts" style="margin-bottom:10px;">
-    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeeljobs%2F&width=300&height=150&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=892560280818752" width="300" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBubbas%2F&width=300&height=150&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=892560280818752" width="300" height="150" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
   </div>
   {% if request.user.is_authenticated %}
   {% if request.user.is_jobseeker and not request.user.resume %}
@@ -202,7 +202,7 @@
   <div class="subscribe_box">
     <div class="login_box">
       <p class="head text-capitalize">SUBSCRIBE WITH US, TO GET JOBS INTO YOUR INBOX</p>
-      <form id="Jobsubscribeform" name="Jobsubscribeform" class="Jobsubscribeform" method = "POST">
+      <form id="Profilesubscribeform" name="Profilesubscribeform" class="Profilesubscribeform" method = "POST">
         <div class="form-group">
           <select class="form-control" id="job_skills" name="skill" multiple>
           </select>
@@ -269,7 +269,7 @@
   {%get_latest_walkins as walkins%}
   {% if walkins %}
   <div class="walkin_jobs">
-    <div class="heading text-uppercase">Walk-in Jobs</div>
+    <div class="heading text-uppercase">Walk-in Profiles</div>
     <ul class="walkin_blocks">
     {% for walkin in walkins|slice:"7" %}
       <li class="walkin_block" id="{{ walkin.get_absolute_url }}">

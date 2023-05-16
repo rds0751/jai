@@ -17,7 +17,7 @@
         <a class="badge bg-primary" href="{% url 'dashboard:applicants' status %}">All</a>
         <a class="badge bg-primary" href="{% url 'dashboard:applicants' status %}?resume_uploaded=true">Resume Uploaded</a>
         <a class="badge bg-secondary" href="{% url 'dashboard:applicants' status %}?profile_completed=true">Profile Completed</a>
-        <a class="badge bg-success" href="{% url 'dashboard:applicants' status %}?appliedto_jobs=true">Apllied to Jobs</a>
+        <a class="badge bg-success" href="{% url 'dashboard:applicants' status %}?appliedto_jobs=true">Apllied to Profiles</a>
         <a class="badge bg-danger" href="{% url 'dashboard:applicants' status %}?login_once=true">Login Only Once</a>
       </span>
       {% if status != "social" %}
@@ -75,7 +75,7 @@
           <th>Profile Completion Percentage</th>
           <th>Referer</th>
           <th>Status</th>
-          <th>No of AppliedJobs</th>
+          <th>No of AppliedProfiles</th>
           <th>Social Status</th>
           <th>Actions</th>
         </tr>

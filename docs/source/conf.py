@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Peeljobs"
+project = "Bubbas"
 copyright = "2020, MicroPyramid"
 author = "MicroPyramid"
 

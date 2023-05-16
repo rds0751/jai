@@ -5,7 +5,7 @@
 {% load thumbnail %}
 
 {% block block_canonical %}
-  <link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+  <link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 
 {% block block_title %}
@@ -28,19 +28,19 @@
             </li>
             <li>
               <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs">
-                <span class="name">Latest Jobs</span>
+                <span class="name">Latest Profiles</span>
               </a>
             </li>
             <li class="current">
               <span href="{% url 'jobs_by_location' 'jobs' %}" class="active job_detail">
-                <span class="name">Jobs by Degree</span>
+                <span class="name">Profiles by Degree</span>
               </span>
             </li>
           </ol>
         </nav>
       </div>
 
-      <h1 class='internship-text'>Jobs by degrees</h1>
+      <h1 class='internship-text'>Profiles by degrees</h1>
       <div class="row">
         <!-- list -->
         <div class="browse_container col-md-9">
@@ -134,7 +134,7 @@
             <div class="browse_results skills_container">
               <div class="skills_results">
                 {% for degree in all_degrees %}
-                <a href="{% url 'job_skills' degree.slug %}"> {{ degree.name }} Jobs </a>
+                <a href="{% url 'job_skills' degree.slug %}"> {{ degree.name }} Profiles </a>
                 {% empty %}
                 No Degrees Available Here.
                 {% endfor %}

@@ -3,7 +3,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# peeljobs: https://ogp.me/ns/fb/peeljobs#">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# Bubbas: https://ogp.me/ns/fb/Bubbas#">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11720509-7"></script>
 <script>
@@ -14,11 +14,11 @@
   gtag('config', 'UA-11720509-7');
 </script>
  <meta property="fb:app_id" content="469881999753251" />
-  <meta property="og:type"   content="peeljobs:job" />
+  <meta property="og:type"   content="Bubbas:job" />
 {% block block_title %}
-    <title>Free Job Posting - Peeljobs</title>
+    <title>Free Job Posting - Bubbas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url" content="https://peeljobs.com{{ request.path }}" />
+    <meta property="og:url" content="https://Bubbas.com{{ request.path }}" />
 {% endblock %}
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="{{favicon}}"/>
@@ -103,21 +103,21 @@
             <!-- logo -->
             <div class="logo">
               <!--<img src="{% static 'logo.png' %}">-->
-              <a href="{% if request.user.is_agency_recruiter %}{% url "agency:dashboard" %}{% else %}{% url "recruiter:dashboard" %}{% endif %}"><span>PeelJobs</span></a>
+              <a href="{% if request.user.is_agency_recruiter %}{% url "agency:dashboard" %}{% else %}{% url "recruiter:dashboard" %}{% endif %}"><span>Bubbas</span></a>
             </div>
             <!--/ logo -->
             <!-- jobs count -->
             <div class="jobs_count_wrap">
               <ul>
                  <li><a href="#" class="post-new"><i class='fa fa-comments'></i>Post A Job</a></li>
-                 <li><a href="{% url 'recruiter:list' %}">Jobs Posted
+                 <li><a href="{% url 'recruiter:list' %}">Profiles Posted
                       <span class='count yellow'>{{ request.user.get_jobposts_count }}</span>
                     </a>
                  </li>
                  <li>
-                  <a href="{% url 'recruiter:list' %}">Active Jobs <span class='count green'>{{ request.user.get_active_jobposts_count }}</span></a>
+                  <a href="{% url 'recruiter:list' %}">Active Profiles <span class='count green'>{{ request.user.get_active_jobposts_count }}</span></a>
                  </li>
-                 <li><a href="{% url 'recruiter:inactive_jobs' %}">Inactive Jobs<span class='count red'>{{ request.user.get_inactive_jobposts_count }}</span></a>
+                 <li><a href="{% url 'recruiter:inactive_jobs' %}">Inactive Profiles<span class='count red'>{{ request.user.get_inactive_jobposts_count }}</span></a>
                  </li>
                  {% get_unread_messages request.user '' '' as unread_messages %}
                   <li><a href="{% url 'recruiter:messages' %}"><i class='fa fa-comments'></i>Messages 
@@ -187,9 +187,9 @@
                 <li class=""><a href="{% url "agency:dashboard" %}"  class="menu_item"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
                 {% endif %}
                 {% if request.user.is_agency_recruiter %}
-                 <li class=""><a href="{% url "agency:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Jobs List</span></a></li>
+                 <li class=""><a href="{% url "agency:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Profiles List</span></a></li>
                  {% else %}
-                 <li class=""><a href="{% url "recruiter:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Jobs List</span></a></li>
+                 <li class=""><a href="{% url "recruiter:list" %}"  class="menu_item"><i class="fa fa-briefcase"></i><span>Profiles List</span></a></li>
                  {% endif %}
                 {% if request.user.is_agency_admin or request.user.is_company_recruiter or request.user|check_recruiter_perm:"jobposts_edit" %}
                 <li><a class="menu_item post-new" href="#"><i class='fa fa-briefcase'></i><span>Post A Job</span></a></li>

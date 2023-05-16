@@ -231,7 +231,7 @@ def inactive_jobs(request):
 
 def add_other_skills(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "Bubbas New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
     for skill in data:
         for value in skill.values():
@@ -262,7 +262,7 @@ def add_other_skills(job_post, data, user):
 
 def add_other_qualifications(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "Bubbas New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
     for qualification in data:
         for value in qualification.values():
@@ -290,7 +290,7 @@ def add_other_qualifications(job_post, data, user):
 
 def add_other_industry(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "Bubbas New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
 
     for industry in data:
@@ -319,7 +319,7 @@ def add_other_industry(job_post, data, user):
 
 def add_other_functional_area(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "Bubbas New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
 
     for functional_area in data:
@@ -429,7 +429,7 @@ def retreving_form_errors(request, post):
 
 def add_other_locations(post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "Bubbas New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
     for location in data.getlist("other_location"):
         locations = [loc.strip() for loc in location.split(",") if loc.strip()]
@@ -614,7 +614,7 @@ def save_job_post(validate_post, request):
             user = User.objects.get(id=recruiter)
             c = {"job_post": validate_post, "user": user}
             t = loader.get_template("email/assign_jobpost.html")
-            subject = "PeelJobs New JobPost"
+            subject = "Bubbas New JobPost"
             rendered = t.render(c)
             user_active = True if user.is_active else False
             mto = [user.email]
@@ -729,7 +729,7 @@ def new_job(request, status):
         adding_other_fields_data(request.POST, validate_post, request.user)
         c = {"job_post": validate_post, "user": request.user}
         t = loader.get_template("email/jobpost_notification.html")
-        subject = "PeelJobs New JobPost"
+        subject = "Bubbas New JobPost"
         rendered = t.render(c)
         mto = settings.SUPPORT_EMAILS
         send_email.delay(mto, subject, rendered)
@@ -937,7 +937,7 @@ def copy_job(request, status):
         adding_other_fields_data(request.POST, validate_post, request.user)
         c = {"job_post": validate_post, "user": request.user}
         t = loader.get_template("email/jobpost_notification.html")
-        subject = "PeelJobs New JobPost"
+        subject = "Bubbas New JobPost"
         rendered = t.render(c)
         mto = settings.SUPPORT_EMAILS
         send_email.delay(mto, subject, rendered)
@@ -1007,9 +1007,9 @@ def view_job(request, job_post_id):
             except:
                 profile_pic = request.user.photo
             if not user_pic:
-                user_pic = "https://cdn.peeljobs.com/dummy.jpg"
+                user_pic = "https://cdn.Bubbas.com/dummy.jpg"
             if not profile_pic:
-                profile_pic = "https://cdn.peeljobs.com/dummy.jpg"
+                profile_pic = "https://cdn.Bubbas.com/dummy.jpg"
             applicant = render_to_string(
                 "recruiter/job/applicant_profile.html",
                 {
@@ -1224,7 +1224,7 @@ def enable_job(request, job_post_id):
     #     fb_group = FacebookGroup.objects.get(user=request.user, group_id=group.page_or_group_id)
     #     is_active = True
     #     postongroup.delay(request.user, job_post, fb_group, is_active)
-    #     # need to get accetoken for peeljobs twitter page
+    #     # need to get accetoken for Bubbas twitter page
     # if job_post.post_on_tw:
     #     postontwitter.delay(request.user, job_post, 'Profile')
     #     # postontwitter(request.user, post, 'Page')
@@ -1274,7 +1274,7 @@ def applicants(request, job_post_id):
             job_post_id=job_post_id, status=prev_status
         ).count()
         temp = loader.get_template("email/applicant_apply_job.html")
-        subject = "Application Status - PeelJobs"
+        subject = "Application Status - Bubbas"
         if request.POST.get("type") == "resume":
             mto = [user.resume_applicant.email]
         else:
@@ -1519,7 +1519,7 @@ def new_user(request):  # pragma: no mccabe
                     user_obj.save()
 
                     temp = loader.get_template("recruiter/email/recruiter_account.html")
-                    subject = "PeelJobs Recruiter Account Activation"
+                    subject = "Bubbas Recruiter Account Activation"
                     mto = request.POST.get("email")
                     if (
                         "client_type" in request.POST
@@ -1648,7 +1648,7 @@ def user_password_reset(request):
                     temp = loader.get_template("email/subscription_success.html")
                 else:
                     temp = loader.get_template("recruiter/email/activate.html")
-                subject = "Password Reset - PeelJobs"
+                subject = "Password Reset - Bubbas"
                 mto = [request.POST.get("email")]
                 try:
                     url = (
@@ -1662,7 +1662,7 @@ def user_password_reset(request):
                         + "/"
                     )
                 except:
-                    url = "https://peeljobs.com" + reverse("recruiter:new_user")
+                    url = "https://Bubbas.com" + reverse("recruiter:new_user")
                 if not usr.is_active:
                     if usr.company:
                         url = (
@@ -1804,7 +1804,7 @@ def send_mobile_verification_code(request):
         user = request.user
         random_code = rand_string(size=6)
         # message = 'Hello ' + request.user.username + ', An OTP ' + random_code + \
-        #     ' for your Peeljobs recruiter account, Please Confirm and Proceed'
+        #     ' for your Bubbas recruiter account, Please Confirm and Proceed'
         # data = {"username": settings.BULK_SMS_USERNAME, "password": settings.BULK_SMS_PASSWORD,
         #         "from": settings.BULK_SMS_FROM, "to": user.mobile, "message": message}
         # requests.get("https://182.18.160.225/index.php/api/bulk-sms", params=data)
@@ -1889,7 +1889,7 @@ def index(request):
                 #             + user.username
                 #             + ", An OTP "
                 #             + random_code
-                #             + " for your Peeljobs recruiter account, Please Confirm and Proceed"
+                #             + " for your Bubbas recruiter account, Please Confirm and Proceed"
                 #         )
 
                 #         data = {
@@ -1951,7 +1951,7 @@ def index(request):
                 c = {"activate_url": url, "user": user}
                 rendered = temp.render(c)
                 mto = [request.POST.get("email")]
-                subject = "PeelJobs Recruiter Account Activation"
+                subject = "Bubbas Recruiter Account Activation"
                 send_email.delay(mto, subject, rendered)
                 data = {
                     "error": True,
@@ -2043,7 +2043,7 @@ def edit_profile(request):
         #             + request.user.username
         #             + ", An OTP "
         #             + random_code
-        #             + " for your Peeljobs recruiter account, Please Confirm and Proceed"
+        #             + " for your Bubbas recruiter account, Please Confirm and Proceed"
         #         )
         #         data = {
         #             "username": settings.BULK_SMS_USERNAME,
@@ -2853,7 +2853,7 @@ def interview_location(request, location_count):
 def registration_success(request):
     # user = request.user
     # random_code = rand_string(size=6)
-    # message = 'Hello ' + user.username + ', An OTP ' + random_code + ' for your Peeljobs recruiter account, Please Confirm and Proceed'
+    # message = 'Hello ' + user.username + ', An OTP ' + random_code + ' for your Bubbas recruiter account, Please Confirm and Proceed'
     # data = {"username": settings.SMS_AUTH_KEY, "password": settings.BULK_SMS_PASSWORD, "from": settings.BULK_SMS_FROM, "to": user.mobile, "message": message}
     # # requests.get("http://182.18.160.225/index.php/api/bulk-sms", params=data)
     # url = 'http://sms.9sm.in/rest/services/sendSMS/sendGroupSms?AUTH_KEY='+str(settings.SMS_AUTH_KEY) + '&message=' + str(message)
@@ -2895,7 +2895,7 @@ def edit_company(request):
             company_obj = company_form.save(commit=False)
             if request.FILES.get("profile_pic"):
                 if company_obj.profile_pic:
-                    url = str(company.profile_pic).split("cdn.peeljobs.com")[-1:]
+                    url = str(company.profile_pic).split("cdn.Bubbas.com")[-1:]
                     AWS().cloudfront_invalidate(paths=url)
                     file_path = get_aws_file_path(
                         request.FILES.get("profile_pic"),
@@ -2966,7 +2966,7 @@ def upload_profilepic(request):
             if str(ftype) in sup_formates:
                 if request.user.company.profile_pic:
                     url = str(request.user.company.profile_pic).split(
-                        "cdn.peeljobs.com"
+                        "cdn.Bubbas.com"
                     )[-1:]
                     AWS().cloudfront_invalidate(paths=url)
                 file_path = get_aws_file_path(
@@ -3100,7 +3100,7 @@ def company_recruiter_create(request):
                 )
             except:
                 url = (
-                    "https://peeljobs.com"
+                    "https://Bubbas.com"
                     + "/recruiter/activation/"
                     + str(user.activation_code)
                     + "/"
@@ -3112,7 +3112,7 @@ def company_recruiter_create(request):
             }
             rendered = temp.render(c)
             mto = [user.email]
-            subject = "PeelJobs Recruiter Account Activation"
+            subject = "Bubbas Recruiter Account Activation"
             # user_active = True if request.user.is_active else False
             send_email.delay(mto, subject, rendered)
             data = {"error": False, "response": "Recruiter Created Successfully"}
@@ -3434,9 +3434,9 @@ def messages(request):
             except:
                 profile_pic = request.user.photo
             if not user_pic:
-                user_pic = "https://cdn.peeljobs.com/dummy.jpg"
+                user_pic = "https://cdn.Bubbas.com/dummy.jpg"
             if not profile_pic:
-                profile_pic = "https://cdn.peeljobs.com/dummy.jpg"
+                profile_pic = "https://cdn.Bubbas.com/dummy.jpg"
             messages = render_to_string(
                 "candidate/messages.html",
                 {

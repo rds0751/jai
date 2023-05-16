@@ -1,8 +1,8 @@
 ==========
-Peeljobs
+Bubbas
 ==========
 
-Peeljobs is an opensource job portal site developed on Django and maintained by `Micropyramid`_. It has all the featutes like Employer and Candidates
+Bubbas is an opensource job portal site developed on Django and maintained by `Micropyramid`_. It has all the featutes like Employer and Candidates
 
 .. _Micropyramid: https://micropyramid.com/ 
 

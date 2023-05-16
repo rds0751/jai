@@ -1,6 +1,5 @@
 import os
 
-from celery.schedules import crontab
 from corsheaders.defaults import default_headers, default_methods
 from dotenv import load_dotenv
 
@@ -11,15 +10,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DEBUG = os.getenv("DEBUG", True)
 TEMPLATE_DEBUG = DEBUG
 
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "support@peeljobs.com")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "support@Bubbas.com")
 
 CONTACT_NUMBER = os.getenv("CONTACT_NUMBER", "850 009 9499")
 
-PEEL_URL = os.getenv("PEEL_URL", "http://peeljobs.com/")
-
-CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", "redis://localhost:6379/1")
-CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
-CELERY_IMPORTS = ("social.tasks", "dashboard.tasks", "recruiter.tasks")
+PEEL_URL = os.getenv("PEEL_URL", "http://Bubbas.com/")
 
 # stackoverflow app
 SOF_APP_ID = os.getenv("SOFAPPID")
@@ -35,7 +30,7 @@ logging = "DEBUG"
 GIT_APP_ID = os.getenv("GITAPPID")
 GIT_APP_SECRET = os.getenv("GITAPPSECRET")
 
-ALLOWED_HOSTS = ["peeljobs.com", "test.peeljobs.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["Bubbas.com", "test.Bubbas.com", "localhost", "127.0.0.1"]
 
 # tw app
 tw_oauth_token_secret = os.getenv("twoauthtokensecret")
@@ -52,7 +47,7 @@ PJ_TW_APP_SECRET = os.getenv("PJTWAPPSECRET")
 # fb app
 FB_APP_ID = os.getenv("FACEBOOK_APP_ID")
 FB_SECRET = os.getenv("FACEBOOK_APP_SECRET")
-FB_PEELJOBS_PAGEID = os.getenv("FBPEELJOBSPAGEID")
+FB_Bubbas_PAGEID = os.getenv("FBBubbasPAGEID")
 
 # google app
 GOOGLE_CLIENT_ID = GOOGLE_OAUTH2_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
@@ -69,7 +64,7 @@ LN_COMPANYID = os.getenv("LNCOMPANYID")
 # re-captcha
 RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHAPUBLICKEY")
 RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHAPRIVATEKEY")
-RECAPTCHA_USE_SSL = True
+RECAPTCHA_USE_SSL = False
 
 # Make this unique, and don"t share it with anybody.
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -80,17 +75,11 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+import dj_database_url
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": os.getenv("DB_HOST"),
-        "PORT": os.getenv("DB_PORT"),
-    }
-}
-
+    'default': dj_database_url.config(
+        default='postgres://dbmasteruser:smarty24@ls-50b9e3677c432aa3ffe9dbfac126276facaa8f38.cacqug8qj9tp.eu-west-3.rds.amazonaws.com:5432/postgres',
+        conn_max_age=600)}
 
 TIME_ZONE = "Asia/Calcutta"
 
@@ -133,12 +122,11 @@ INSTALLED_APPS = (
     "storages",
     "peeldb",
     # 'django_simple_forum',
-    "haystack",
+    # "haystack",
     "dashboard",
     "search",
     "simple_pagination",
     "tellme",
-    "django_celery_beat",
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
@@ -162,7 +150,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:4200", "http://127.0.0.1:4200"]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.peeljobs\.com$",
+    r"^https://\w+\.Bubbas\.com$",
 ]
 CORS_ALLOW_METHODS = list(default_methods)
 CORS_ALLOW_HEADERS = list(default_headers)
@@ -233,121 +221,28 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 
 # Haystack settings for Elasticsearch
-# HAYSTACK_CONNECTIONS = {
-#     "default": {
-#         "ENGINE": "peeldb.backends.ConfigurableElasticSearchEngine",
-#         "URL": "http://127.0.0.1:9200/",
-#         "INDEX_NAME": "job_haystack",
-#         "TIMEOUT": 60,
-#     },
-# }
-
 HAYSTACK_CONNECTIONS = {
     "default": {
-        "ENGINE": "haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine",
+        "ENGINE": "peeldb.backends.ConfigurableElasticSearchEngine",
         "URL": "http://127.0.0.1:9200/",
-        "INDEX_NAME": "haystack",
+        "INDEX_NAME": "job_haystack",
+        "TIMEOUT": 60,
     },
 }
+
+# HAYSTACK_CONNECTIONS = {
+#     "default": {
+#         "ENGINE": "haystack.backends.elasticsearch7_backend.Elasticsearch7SearchEngine",
+#         "URL": "http://127.0.0.1:9200/",
+#         "INDEX_NAME": "haystack",
+#     },
+# }
 
 
 HAYSTACK_SIGNAL_PROCESSOR = "haystack.signals.RealtimeSignalProcessor"
 HAYSTACK_DEFAULT_OPERATOR = "OR"
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 1
 
-CELERY_TIMEZONE = "Asia/Calcutta"
-
-CELERY_BEAT_SCHEDULE = {
-    # Executes every day evening at 5:00 PM GMT +5.30
-    "moving-published-jobs-to-live": {
-        "task": "dashboard.tasks.jobpost_published",
-        "schedule": crontab(minute="*", day_of_week="mon,tue,wed,thu,fri,sat"),
-    },
-    "sending-today-applied-users-info-to-recruiters": {
-        "task": "dashboard.tasks.recruiter_jobpost_applicants",
-        "schedule": crontab(
-            hour="16", minute="00", day_of_week="mon,tue,wed,thu,fri,sat"
-        ),
-    },
-    # "sending-profile_update-notifications-to-applicants": {
-    #     "task": "dashboard.tasks.applicants_notifications",
-    #     "schedule": crontab(
-    #         hour="16", minute="00", day_of_week="mon,tue,wed,thu,fri,sat"
-    #     ),
-    # },
-    "sending-daily-statistics-report-to-admins": {
-        "task": "dashboard.tasks.daily_report",
-        "schedule": crontab(
-            hour="08", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-    "sending-weekly-jobs-notifications-to-applicants": {
-        "task": "dashboard.tasks.applicants_job_notifications",
-        "schedule": crontab(hour="09", minute="00", day_of_week="mon"),
-    },
-    # "all-users-profile-update-and-birthday-notifications": {
-    #     "task": "dashboard.tasks.alerting_applicants",
-    #     "schedule": crontab(
-    #         hour="10", minute="05", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-    #     ),
-    # },
-    # "alerting-all-inactive-users-and-applicants-resume-upload-notifications": {
-    #     "task": "dashboard.tasks.applicants_profile_update_notifications",
-    #     "schedule": crontab(
-    #         hour="09", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-    #     ),
-    # },
-    "sending-profile-update-notifications-two-hours-after-registering": {
-        "task": "dashboard.tasks.applicants_profile_update_notifications_two_hours",
-        "schedule": crontab(
-            hour="*/2", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-    # "walkin-notifications-to-applicants": {
-    #     "task": "dashboard.tasks.applicants_walkin_job_notifications",
-    #     "schedule": crontab(hour="09", minute="00", day_of_week="thu"),
-    # },
-    # "handling-sendgrid-bounces": {
-    #     "task": "dashboard.tasks.handle_sendgrid_bounces",
-    #     "schedule": crontab(
-    #         hour="03", minute="10", day_of_week="mon,tue,wed,thu,fri,sat"
-    #     ),
-    # },
-    "daily-sitemap-generation": {
-        "task": "dashboard.tasks.sitemap_generation",
-        "schedule": crontab(
-            hour="00", minute="10", day_of_week="mon,tue,wed,thu,fri,sat"
-        ),
-    },
-    "sending-today-live-jobs-to-users-based-on-profile": {
-        "task": "dashboard.tasks.job_alerts_to_users",
-        "schedule": crontab(
-            hour="17", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-    "sending-today-live-jobs-to-alerts": {
-        "task": "dashboard.tasks.job_alerts_to_alerts",
-        "schedule": crontab(
-            hour="10", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-    "sending-today-live-jobs-to-subscribers": {
-        "task": "dashboard.tasks.job_alerts_to_subscribers",
-        "schedule": crontab(
-            hour="18", minute="00", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-    # "recruiter-profile-update-notifications": {
-    #     "task": "dashboard.tasks.recruiter_profile_update_notifications",
-    #     "schedule": crontab(hour="09", minute="30", day_of_week="mon"),
-    # },
-    "haystack-rebuilding-indexes": {
-        "task": "dashboard.tasks.rebuilding_index",
-        "schedule": crontab(
-            hour="00", minute="20", day_of_week="mon,tue,wed,thu,fri,sat,sun"
-        ),
-    },
-}
 SUPPORT_EMAILS = [
     "ashwin@micropyramid.com",
 ]
@@ -404,10 +299,10 @@ FB_DEL_ACCESS_TOKEN = os.getenv("FBDELACCESSTOKEN")
 REC_FB_ACCESS_TOKEN = os.getenv("RECFBACCESSTOKEN")
 
 URLS = [
-    "http://stage.peeljobs.com/",
-    "http://stage.peeljobs.com/fresher-jobs/",
-    "http://stage.peeljobs.com/jobs/",
-    "http://stage.peeljobs.com/companies/",
+    "http://stage.Bubbas.com/",
+    "http://stage.Bubbas.com/fresher-jobs/",
+    "http://stage.Bubbas.com/jobs/",
+    "http://stage.Bubbas.com/companies/",
 ]
 
 DAILY_REPORT_USERS = [

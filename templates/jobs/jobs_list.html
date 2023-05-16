@@ -6,12 +6,12 @@
 {% block block_canonical_tag %}
   {% if current_page|slugify == '1'|slugify %}
     {% else %}
-    <link rel="prev" href="https://peeljobs.com{{ current_url }}{% if prev_page != 1 %}{{prev_page}}/{% endif %}" />
+    <link rel="prev" href="https://Bubbas.com{{ current_url }}{% if prev_page != 1 %}{{prev_page}}/{% endif %}" />
   {% endif %}
   {% if current_page <= last_page %}
     {% if current_page == last_page %}
     {% else %}
-      <link rel="next" href="https://peeljobs.com{{ current_url }}{{current_page| add:"1"}}/" />
+      <link rel="next" href="https://Bubbas.com{{ current_url }}{{current_page| add:"1"}}/" />
     {% endif %}
   {% endif %}
 {% endblock %}
@@ -51,38 +51,38 @@
           {% elif searched_locations %}
             <li>
               <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs-by-location/" class="name">
-                <span class="name" >{% if walkin %}Walkins{% else %}Jobs{% endif %} by location</span>
+                <span class="name" >{% if walkin %}Walkins{% else %}Profiles{% endif %} by location</span>
               </a>
             </li>
             <li class="current">
               <span href="{{ request.path }}" class="job_detail active" >
                 <span class="name" >
-                  {% if walkin %}Walkins{% else %}Jobs{% endif %} In {% for location in searched_locations %}{{ location }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+                  {% if walkin %}Walkins{% else %}Profiles{% endif %} In {% for location in searched_locations %}{{ location }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}
                 </span>
               </span>
             </li>
           {% elif searched_skills %}
             <li>
               <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs-by-skill/" class="active">
-                <span class="name" >Jobs by skill</span>
+                <span class="name" >Profiles by skill</span>
               </a>
             </li>
           <li class="current">
             <span class="active job_detail">
               <span class="name" >
-                {% for skill in searched_skills %}{{ skill }}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}  {% if fresher %}Freshers{% endif %}{% if walkin %}Walkins{% else %}Jobs{% endif %}
+                {% for skill in searched_skills %}{{ skill }}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}  {% if fresher %}Freshers{% endif %}{% if walkin %}Walkins{% else %}Profiles{% endif %}
               </span>
             </span>
           </li>
           {% elif searched_industry %}
             <li>
               <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs-by-industry" class="active">
-                <span class="name" >Jobs by industry</span>
+                <span class="name" >Profiles by industry</span>
               </a>
             </li>
             <li class="current">
               <span class="job_detail active">
-                <span class="name" >Jobs For {% for industry in searched_industry %}{{ industry.name|get_industry_name }}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}
+                <span class="name" >Profiles For {% for industry in searched_industry %}{{ industry.name|get_industry_name }}{% if forloop.last %}{% else %}, {% endif%}{% endfor %}
                 </span>
               </span>
             </li>
@@ -343,42 +343,42 @@
                 {% with state.get_state_cities as state_cities %}
                 {% if fresher %}
                   {% for loc in searched_locations %}
-                    <li><a href="{% url 'job_locations' loc.slug %}">&raquo; Jobs in {{ loc.name }}</a></li>
+                    <li><a href="{% url 'job_locations' loc.slug %}">&raquo; Profiles in {{ loc.name }}</a></li>
                     <li><a href="{% url 'location_walkin_jobs' loc.slug %}">&raquo; Walkins in {{ loc.name }}</a></li>
                   {% endfor %}
                   {% for city in state_cities %}
-                    <li><a href="{% url 'job_locations' city.slug %}">&raquo; Jobs in {{ city.name }}</a></li>
+                    <li><a href="{% url 'job_locations' city.slug %}">&raquo; Profiles in {{ city.name }}</a></li>
                     <li><a href="{% url 'location_walkin_jobs' city.slug %}">&raquo; Walkins in {{ city.name }}</a></li>
                   {% endfor %}
                   {% for search in searched_skills %}
-                    <li><a href="{% url 'job_skills' search.slug %}">&raquo; {{ search.name }} Jobs</a></li>
+                    <li><a href="{% url 'job_skills' search.slug %}">&raquo; {{ search.name }} Profiles</a></li>
                     <li><a href="{% url 'skill_walkin_jobs' search.slug %}">&raquo; {{ search.name }} Walkins</a></li>
                   {% endfor %}
                 {% elif walkin %}
                   {% for loc in searched_locations %}
-                    <li><a href="{% url 'job_locations' loc.slug %}">&raquo; Jobs in {{ loc.name }}</a></li>
-                    <li><a href="{% url 'location_fresher_jobs' loc.slug %}">&raquo; Fresher Jobs in {{ loc.name }}</a></li>
+                    <li><a href="{% url 'job_locations' loc.slug %}">&raquo; Profiles in {{ loc.name }}</a></li>
+                    <li><a href="{% url 'location_fresher_jobs' loc.slug %}">&raquo; Fresher Profiles in {{ loc.name }}</a></li>
                   {% endfor %}
                   {% for city in state_cities %}
-                    <li><a href="{% url 'job_locations' city.slug %}">&raquo; Jobs in {{ city.name }}</a></li>
-                    <li><a href="{% url 'location_fresher_jobs' city.slug %}">&raquo; Fresher Jobs in {{ city.name }}</a></li>
+                    <li><a href="{% url 'job_locations' city.slug %}">&raquo; Profiles in {{ city.name }}</a></li>
+                    <li><a href="{% url 'location_fresher_jobs' city.slug %}">&raquo; Fresher Profiles in {{ city.name }}</a></li>
                   {% endfor %}
                   {% for search in searched_skills %}
-                    <li><a href="{% url 'job_skills' search.slug %}">&raquo; {{ search.name }} Jobs</a></li>
-                    <li><a href="{% url 'skill_fresher_jobs' search.slug %}">&raquo; {{ search.name }} Fresher Jobs</a></li>
+                    <li><a href="{% url 'job_skills' search.slug %}">&raquo; {{ search.name }} Profiles</a></li>
+                    <li><a href="{% url 'skill_fresher_jobs' search.slug %}">&raquo; {{ search.name }} Fresher Profiles</a></li>
                   {% endfor %}
                 {% else %}
                   {% for loc in searched_locations %}
                     <li><a href="{% url 'location_walkin_jobs' loc.slug %}">&raquo; Walkins in {{ loc.name }}</a></li>
-                    <li><a href="{% url 'location_fresher_jobs' loc.slug %}">&raquo; Fresher Jobs in {{ loc.name }}</a></li>
+                    <li><a href="{% url 'location_fresher_jobs' loc.slug %}">&raquo; Fresher Profiles in {{ loc.name }}</a></li>
                   {% endfor %}
                   {% for city in state_cities %}
                     <li><a href="{% url 'location_walkin_jobs' city.slug %}">&raquo; Walkins in {{ city.name }}</a></li>
-                    <li><a href="{% url 'location_fresher_jobs' city.slug %}">&raquo; Fresher Jobs in {{ city.name }}</a></li>
+                    <li><a href="{% url 'location_fresher_jobs' city.slug %}">&raquo; Fresher Profiles in {{ city.name }}</a></li>
                   {% endfor %}
                   {% for search in searched_skills %}
                     <li><a href="{% url 'skill_walkin_jobs' search.slug %}">&raquo; {{ search.name }} Walkins</a></li>
-                    <li><a href="{% url 'skill_fresher_jobs' search.slug %}">&raquo; {{ search.name }} Fresher Jobs</a></li>
+                    <li><a href="{% url 'skill_fresher_jobs' search.slug %}">&raquo; {{ search.name }} Fresher Profiles</a></li>
                   {% endfor %}
                 {% endif %}
                 {% endwith %}
@@ -410,7 +410,7 @@
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                                   <ul>
                                     <li><a href="{% url 'skill_location_wise_fresher_jobs' skill.0.slug location.slug %}" target="_blank">
-                                    {{ skill.0.name }} Fresher Jobs in {{ location.name }}</a></li>
+                                    {{ skill.0.name }} Fresher Profiles in {{ location.name }}</a></li>
                                   </ul>
                                 </div>
                               {% endfor %}
@@ -440,7 +440,7 @@
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                                   <ul>
                                     <li><a href="{% url 'custome_search' skill.0.slug location.slug %}" target="_blank">
-                                    {{ skill.0.name }} Jobs in {{ location.name }}</a></li>
+                                    {{ skill.0.name }} Profiles in {{ location.name }}</a></li>
                                   </ul>
                                 </div>
                               {% endfor %}

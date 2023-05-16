@@ -69,7 +69,7 @@ def index(request):
             )
             ticket.attachments.add(attachment)
         temp = loader.get_template("email/new_ticket.html")
-        subject = "Service Request | Peeljobs"
+        subject = "Service Request | Bubbas"
         rendered = temp.render({"ticket": ticket})
         user_active = True if ticket.user.is_active else False
         mto = [ticket.user.email]
@@ -115,7 +115,7 @@ def new_ticket(request):
             )
             ticket.attachments.add(attachment)
         temp = loader.get_template("email/new_ticket.html")
-        subject = "Service Request | Peeljobs"
+        subject = "Service Request | Bubbas"
         rendered = temp.render({"ticket": ticket})
         user_active = True if ticket.user.is_active else False
         mto = ticket.user.email
@@ -317,7 +317,7 @@ def ticket_status(request, ticket_id):
                 ticket.status = request.POST.get("ticket_status")
                 ticket.save()
                 temp = loader.get_template("email/new_ticket.html")
-                subject = "Your Ticket Status | Peeljobs"
+                subject = "Your Ticket Status | Bubbas"
                 rendered = temp.render({"ticket": ticket, "status": True})
                 mto = ticket.user.email
                 user_active = True if ticket.user.is_active else False
@@ -367,7 +367,7 @@ def ticket_comment(request, ticket_id):
                         comment.attachments.add(attachment)
                 if request.user.is_superuser:
                     temp = loader.get_template("email/new_ticket.html")
-                    subject = "Acknowledgement For Your Request | Peeljobs"
+                    subject = "Acknowledgement For Your Request | Bubbas"
                     rendered = temp.render({"ticket": ticket, "comment": comment})
                     mto = ticket.user.email
                     user_active = True if ticket.user.is_active else False

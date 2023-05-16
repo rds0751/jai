@@ -1,5 +1,5 @@
 #!/bin/bash
-ls /home/peeljobs
-pip3 install -r /home/peeljobs/requirements.txt
-python3 /home/peeljobs/manage.py migrate
-python3 /home/peeljobs/manage.py runserver
+ls /home/Bubbas
+pip3 install -r /home/Bubbas/requirements.txt
+python3 /home/Bubbas/manage.py migrate
+python3 /home/Bubbas/manage.py runserver

@@ -25,7 +25,6 @@ from peeldb.models import (
 )
 from candidate.forms import YEARS, MONTHS
 from recruiter.forms import UserStatus
-from pjob.calendar_events import get_calendar_events_list
 
 register = template.Library()
 
@@ -573,7 +572,7 @@ def get_skill_icon(value):
     if skills and skills[0].icon and skills[0].status == "Active":
         return skills[0].icon
     else:
-        return "http://cdn.peeljobs.com/jobopenings1.png"
+        return "http://cdn.Bubbas.com/jobopenings1.png"
 
 
 @register.simple_tag
@@ -685,15 +684,6 @@ def get_related_skills(search_skills):
     c = Counter(skills)
     final = c.most_common()
     return final[:20]
-
-
-@register.filter()
-def is_events_created(request, job):
-    events = get_calendar_events_list(request)
-    titles = [i["summary"] for i in events]
-    if job.title in titles or not job.last_date or date.today() >= job.last_date:
-        return True
-    return False
 
 
 @register.filter()

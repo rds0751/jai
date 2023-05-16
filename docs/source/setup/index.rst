@@ -1,12 +1,12 @@
-Configuration of Peeljobs
+Configuration of Bubbas
 =========================
 
-1. Create a directory using mkdir peeljobs, move to it using cd
+1. Create a directory using mkdir Bubbas, move to it using cd
 
    .. code-block:: python
 
-		mkdir peeljobs
-		cd peeljobs
+		mkdir Bubbas
+		cd Bubbas
 
 2. Install virtualenv in your local using following command
 
@@ -21,12 +21,12 @@ Configuration of Peeljobs
 		virtualenv -p python3 env
 		source ../env/bin/activate
 
-4. Again create another peeljobs directory for clonning the project.
+4. Again create another Bubbas directory for clonning the project.
 
    .. code-block:: python
 
-		mkdir peeljobs
-		cd peeljobs
+		mkdir Bubbas
+		cd Bubbas
 
 5. Make sure git installed in your machine or else install by following below command.
 
@@ -47,13 +47,13 @@ Configuration of Peeljobs
    		git init
 
 
-7. Include peeljobs repository using following command.
+7. Include Bubbas repository using following command.
 
    .. code-block:: python
 
 		git remote add origin https://github.com/MicroPyramid/opensource-job-portal.git
 
-7. Pull the code of peeljobs using following command
+7. Pull the code of Bubbas using following command
 
    .. code-block:: python
 
@@ -141,6 +141,6 @@ Configuration of Peeljobs
 
     .. code-block:: python
 
-      celery -A peeljobs worker -l info
+      celery -A Bubbas worker -l info
 
-      celery -A peeljobs beat -l info
+      celery -A Bubbas beat -l info

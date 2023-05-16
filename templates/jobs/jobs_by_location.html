@@ -6,7 +6,7 @@
 {% load thumbnail %}
 
 {% block block_canonical %}
-  <link rel="canonical" href="https://peeljobs.com{{ request.path }}"/>
+  <link rel="canonical" href="https://Bubbas.com{{ request.path }}"/>
 {% endblock %}
 
 {% block block_title %}
@@ -29,19 +29,19 @@
                 </li>
                 <li>
                   <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/jobs">
-                    <span class="name">Latest Jobs</span>
+                    <span class="name">Latest Profiles</span>
                   </a>
                 </li>
                 <li class="current">
                   <span href="{% url 'jobs_by_location' 'jobs' %}" class="active job_detail">
-                    <span class="name">{% if job_type == 'jobs' %}Jobs{% else %}Walk-in Jobs{% endif %} by location</span>
+                    <span class="name">{% if job_type == 'jobs' %}Profiles{% else %}Walk-in Profiles{% endif %} by location</span>
                   </span>
                 </li>
               </ol>
             </nav>
           </div>
 
-        <h1 class='internship-text'>{% if job_type == 'jobs' %}Jobs{% else %}Walk-in Jobs{% endif %} In Top Cities</h1>
+        <h1 class='internship-text'>{% if job_type == 'jobs' %}Profiles{% else %}Walk-in Profiles{% endif %} In Top Cities</h1>
 
           <div class="row">
             <!-- list -->
@@ -159,15 +159,15 @@
               <!-- browse_list ends here -->
               <!-- browse_results starts here -->
               <div class="browse_results">
-                <div class="browse_heading">Jobs in States / Union Territories and Cities across India</div>
+                <div class="browse_heading">Profiles in States / Union Territories and Cities across India</div>
                 <div id="timelines">
                   {% if job_type == 'jobs' %}
                     {% for state in states %}
                       <div class="item browse_col">
                         <ul {% if not state.is_duplicate %}class="state_url" data-href='{% url 'job_locations' state.slug %}'{% endif %}>
-                          <li>Jobs in {{ state.name }}</li>
+                          <li>Profiles in {{ state.name }}</li>
                           {% for city in state.active_cities %}
-                            <li><a href="{{ city.get_job_url }}" >Jobs in {{ city.name }}</a></li>
+                            <li><a href="{{ city.get_job_url }}" >Profiles in {{ city.name }}</a></li>
                           {% endfor %}
                         </ul>
                       </div>
@@ -187,7 +187,7 @@
                     {% for state in states %}
                       <div class="item browse_col">
                         <ul {% if not state.is_duplicate %}class="state_url" data-href='{% url 'location_fresher_jobs' state.slug %}'{% endif %}>
-                          <li>Fresher Jobs in {{ state.name }}</li>
+                          <li>Fresher Profiles in {{ state.name }}</li>
                             {% for city in state.active_cities %}
                               <li><a href="{% url 'location_fresher_jobs' city.slug %}" >{{ city.name }}</a></li>
                             {% endfor %}

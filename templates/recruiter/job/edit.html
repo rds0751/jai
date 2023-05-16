@@ -586,21 +586,21 @@
                         <div class="input_element row marl_15">
                           <label class="col-md-3">Message</label>
                           <div class="col-md-9 pad_lr_0">
-                          <textarea class="input" id='published_message' name="published_message" rows="3" title="The message which you enter will display in peeljobs facebook page">{{ job_post.published_message }}</textarea>
+                          <textarea class="input" id='published_message' name="published_message" rows="3" title="The message which you enter will display in Bubbas facebook page">{{ job_post.published_message }}</textarea>
                            <span class="hint">
-                           It will be displayed in all peeljobs social networking sites to reach right candidates.
+                           It will be displayed in all Bubbas social networking sites to reach right candidates.
                            <strong data-toggle="modal" data-target="#myModal" class="mytip"> View sample</strong>
 
                           <span style="display:none" class="mylist">
                             <ol type="1" >
-                              <li>The message will be displayed in all peeljobs social networking sites to reach right candidates.
+                              <li>The message will be displayed in all Bubbas social networking sites to reach right candidates.
                               </li>
                               <li>It should represent and enhance the Job Role</li>
                               <li>View Sample below</li>
                             </ol>
                             <div class="social_sample">
                               <div class="socail_image">
-                                <img src="https://cdn.peeljobs.com/static/pj_fb_job_profile.png">
+                                <img src="https://cdn.Bubbas.com/static/pj_fb_job_profile.png">
                               </div>
                             </div>
                           </span>
@@ -1516,7 +1516,7 @@ $("#save").click(function(e) {
 
             url: '.',
             success: function (data) {
-              $.blockUI({ message: '<img src="http://peeljobs.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
+              $.blockUI({ message: '<img src="http://Bubbas.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
 
               if (data.error) {
                   $.unblockUI();
@@ -1586,7 +1586,7 @@ $("#preview").click(function(e) {
             url: '.',
             success: function (data) {
 
-              $.blockUI({ message: '<img src="http://peeljobs.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
+              $.blockUI({ message: '<img src="http://Bubbas.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
 
               if (data.error) {
                 $.unblockUI();
@@ -1656,7 +1656,7 @@ $("#publish").click(function(e) {
 
             url: '.',
             success: function (data) {
-              $.blockUI({ message: '<img src="http://peeljobs.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
+              $.blockUI({ message: '<img src="http://Bubbas.s3.amazonaws.com/static/img/loader-gif.gif" height="90px" width="90px"><h1>Please Wait...</h1>'});
 
               if (data.error) {
                   $.unblockUI();
@@ -1748,7 +1748,7 @@ $("#publish").click(function(e) {
             $("#company_id").val(data.company.company_id);
             /*$('#company_profile_pic').empty();
             alert(data.company.company_profile_pic)
-            $('#company_profile_pic').append('<img style="height:150px;width:150px;" src="//cdn.peeljobs.com/' + data.company.company_profile_pic  + '"></img>')*/
+            $('#company_profile_pic').append('<img style="height:150px;width:150px;" src="//cdn.Bubbas.com/' + data.company.company_profile_pic  + '"></img>')*/
         });
       });
     $(".mytip").click(function(){

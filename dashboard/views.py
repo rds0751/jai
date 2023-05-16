@@ -1362,7 +1362,7 @@ def country(request):
 def edit_tech_skills(skill, request):
     if request.FILES.get("icon"):
         if skill.icon:
-            url = str(skill.icon).split("cdn.peeljobs.com")[-1:]
+            url = str(skill.icon).split("cdn.Bubbas.com")[-1:]
             AWS().cloudfront_invalidate(paths=url)
         file_path = get_aws_file_path(
             request.FILES.get("icon"),
@@ -2060,7 +2060,7 @@ def status_change(request, post_id):
         post.save()
     c = {"job_post": post, "user": post.user}
     t = loader.get_template("email/jobpost.html")
-    subject = "PeelJobs JobPost Status"
+    subject = "Bubbas JobPost Status"
     rendered = t.render(c)
     mto = post.user.email
     user_active = True if post.user.is_active else False
@@ -2160,7 +2160,7 @@ def publish_job(request, job_post_id):
         #     fb_group = FacebookGroup.objects.get(user=job_post.user, group_id=group)
         #     is_active = True
         #     postongroup.delay(job_post.user, job_post, fb_group, is_active)
-        #     # need to get accetoken for peeljobs twitter page
+        #     # need to get accetoken for Bubbas twitter page
         # if job_post.post_on_tw:
         #     postontwitter.delay(job_post.user, job_post, 'Profile'))
     # else:
@@ -2180,7 +2180,7 @@ def publish_job(request, job_post_id):
         #     fb_group = FacebookGroup.objects.get(user=job_post.user, group_id=group)
         #     is_active = True
         #     postongroup.delay(job_post.user, job_post, fb_group, is_active)
-        #     # need to get accetoken for peeljobs twitter page
+        #     # need to get accetoken for Bubbas twitter page
         # if job_post.post_on_tw:
         #     postontwitter.delay(job_post.user, job_post, 'Profile'))
     # else:
@@ -2240,7 +2240,7 @@ def mail_to_recruiter(request, job_post_id):
     recruiter_email = user.email
     c = {"job_post": job_post, "user": user, "comments": request.POST.get("comments")}
     t = loader.get_template("email/mail_to_recruiter.html")
-    subject = "PeelJobs JobPost"
+    subject = "Bubbas JobPost"
     rendered = t.render(c)
     mto = recruiter_email
     send_email.delay(mto, subject, rendered)
@@ -3098,7 +3098,7 @@ def edit_govt_job(request, post_id):
 
             t = loader.get_template("email/jobpost.html")
             c = {"job_post": post, "user": post.user}
-            subject = "PeelJobs New JobPost"
+            subject = "Bubbas New JobPost"
             rendered = t.render(c)
             mto = [settings.DEFAULT_FROM_EMAIL]
             send_email.delay(mto, subject, rendered)
@@ -3131,7 +3131,7 @@ def edit_govt_job(request, post_id):
 
         if "other_location" in request.POST.keys():
             temp = loader.get_template("recruiter/email/add_other_fields.html")
-            subject = "PeelJobs New JobPost"
+            subject = "Bubbas New JobPost"
             mto = [settings.DEFAULT_FROM_EMAIL]
 
             c = {
@@ -3705,7 +3705,7 @@ def edit_company(request, company_id):
                 company.meta_description = request.POST.get("meta_description")
             if request.FILES.get("profile_pic"):
                 if company.profile_pic:
-                    url = str(company.profile_pic).split("cdn.peeljobs.com")[-1:]
+                    url = str(company.profile_pic).split("cdn.Bubbas.com")[-1:]
                     AWS().cloudfront_invalidate(paths=url)
                 file_path = get_aws_file_path(
                     request.FILES.get("profile_pic"), "company/logo/", company.slug
@@ -3713,7 +3713,7 @@ def edit_company(request, company_id):
                 company.profile_pic = file_path
             if request.FILES.get("campaign_icon"):
                 if company.campaign_icon:
-                    url = str(company.campaign_icon).split("cdn.peeljobs.com")[-1:]
+                    url = str(company.campaign_icon).split("cdn.Bubbas.com")[-1:]
                     AWS().cloudfront_invalidate(paths=url)
                 file_path = get_aws_file_path(
                     request.FILES.get("campaign_icon"),
@@ -3829,7 +3829,7 @@ def edit_job_title(request, post_id):
                     job_post.major_skill = skill[0]
             job_url = get_absolute_url(job_post)
             job_post.slug = job_url
-            # job_post.minified_url = google_mini('https://peeljobs.com' + job_url, settings.MINIFIED_URL)
+            # job_post.minified_url = google_mini('https://Bubbas.com' + job_url, settings.MINIFIED_URL)
             job_post.save()
             if (
                 job_post.major_skill
@@ -3845,7 +3845,7 @@ def edit_job_title(request, post_id):
             if job_post.status == "Live" and send_mail:
                 t = loader.get_template("email/jobpost.html")
                 c = {"job_post": job_post, "user": job_post.user}
-                subject = "PeelJobs JobPost Status"
+                subject = "Bubbas JobPost Status"
                 rendered = t.render(c)
                 mto = [job_post.user.email]
                 user_active = True if job_post.user.is_active else False

@@ -57,12 +57,7 @@ from peeldb.models import (
     UserEmail,
     Qualification,
 )
-from pjob.calendar_events import (
-    create_google_calendar_event,
-    get_calendar_events_list,
-    delete_google_calendar_event,
-    get_service,
-)
+
 from psite.forms import (
     SubscribeForm,
     UserEmailRegisterForm,
@@ -1021,7 +1016,7 @@ def job_apply(request, job_id):
                         import urllib.request
 
                         urllib.request.urlretrieve(
-                            "https://peeljobs.s3.amazonaws.com/"
+                            "https://Bubbas.s3.amazonaws.com/"
                             + str(
                                 request.user.resume.encode("ascii", "ignore").decode(
                                     "ascii"
@@ -1268,14 +1263,6 @@ def jobposts_by_date(request, year, month, date, **kwargs):
     results = JobPost.objects.filter(status="Live", last_date=day).order_by(
         "-published_on"
     )
-    events = get_calendar_events_list(request) if request.user.is_authenticated else []
-    event_titles = []
-    for event in events:
-        if event.get("start_date") and event.get("end_date"):
-            if str(day) >= str(event["start_date"]) and str(day) <= str(
-                event["end_date"]
-            ):
-                event_titles.append(event["summary"])
     events = JobPost.objects.filter(title__in=event_titles)
     if not results:
         template = "404.html"
@@ -1903,10 +1890,10 @@ def each_company_jobs(request, company_name, **kwargs):
         data = {
             "message": "Sorry, no jobs available for " + company_name + " jobs",
             "reason": "Unfortunately, we are unable to locate the job you are looking for",
-            "meta_title": "404 - Page Not Found - " + company_name + " - Peeljobs",
+            "meta_title": "404 - Page Not Found - " + company_name + " - Bubbas",
             "meta_description": "404 No Jobs available for "
             + company_name
-            + " - Peeljobs",
+            + " - Bubbas",
             "data_empty": True,
         }
         if request.user.is_authenticated:
@@ -2638,7 +2625,7 @@ def save_codes_and_send_mail(user, request, passwd):
             tech_skill = TechnicalSkill.objects.create(skill=skill[0])
             user.skills.add(tech_skill)
     temp = loader.get_template("email/jobseeker_account.html")
-    subject = "PeelJobs User Account Activation"
+    subject = "Bubbas User Account Activation"
     url = (
         request.scheme
         + "://"
@@ -2903,7 +2890,7 @@ def forgot_password(request):
             user.set_password(new_pass)
             user.save()
             temp = loader.get_template("email/subscription_success.html")
-            subject = "Password Reset - PeelJobs"
+            subject = "Password Reset - Bubbas"
             mto = request.POST.get("email")
             url = (
                 request.scheme
@@ -3068,7 +3055,7 @@ def user_subscribe(request):
                     + "/"
                 )
                 c = {"user_email": email, "skills": skills, "redirect_url": url}
-                subject = "PeelJobs New Subscription"
+                subject = "Bubbas New Subscription"
                 rendered = t.render(c)
                 mto = [email]
                 send_email.delay(mto, subject, rendered)

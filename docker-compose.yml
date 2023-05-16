@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: dockerfile_dj
     volumes:
-      - .:/home/peeljobs
+      - .:/home/Bubbas
     network_mode: "host"
     entrypoint:
       - /home/entrypoint.sh

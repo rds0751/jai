@@ -71,7 +71,7 @@
             <span>No.Of Applicants ({{skill.get_no_of_applicants|length }})</span>
                 <span>  No.Of Resume Applicants ({{skill.get_no_of_resume_applicants|length }})</span>
               {% ifequal skill.status 'Active' %}
-                <a href="/{{skill.slug}}-jobs/" target="_blank" title="View Skill Jobs"><i class="fa fa-eye edit"></i></a>
+                <a href="/{{skill.slug}}-jobs/" target="_blank" title="View Skill Profiles"><i class="fa fa-eye edit"></i></a>
               {% endifequal %}
               <a><i class="fa-solid fa-pen-to-square edit"></i></a>
               {% ifequal skill.status 'InActive' %}<a href="#" id="{{ skill.id }}" rel="{% if request.GET.page %}{{request.GET.page}}{% else %}1{% endif %}" class="enable-skill"><i class="fa fa-check edit" title="Activate Skill"></i></a>{% else %}<a href="#" id="{{ skill.id }}" rel="{% if request.GET.page %}{{request.GET.page}}{% else %}1{% endif %}"  class="deactivate-skill"><i class="fa fa-times delete" title="Deactivate Skill"></i></a>{% endifequal %}

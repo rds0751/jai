@@ -377,7 +377,7 @@ def edit_personalinfo(request):
                 )
             # random_code = rand_string(size=6)
             # message = 'Hello ' + request.user.username + ', An OTP ' + random_code + \
-            #     ' for your Peeljobs recruiter account, Please Confirm and Proceed'
+            #     ' for your Bubbas recruiter account, Please Confirm and Proceed'
             # data = {"username": settings.BULK_SMS_USERNAME, "password": settings.BULK_SMS_PASSWORD,
             #         "from": settings.BULK_SMS_FROM, "to": request.POST.get('mobile'), "message": message}
             # requests.get(
@@ -468,7 +468,7 @@ def edit_personalinfo(request):
 #         user = request.user
 #         random_code = rand_string(size=6)
 #         message = 'Hello ' + request.user.username + ', An OTP ' + random_code + \
-#             ' for your Peeljobs recruiter account, Please Confirm and Proceed'
+#             ' for your Bubbas recruiter account, Please Confirm and Proceed'
 #         data = {"username": settings.BULK_SMS_USERNAME, "password": settings.BULK_SMS_PASSWORD,
 #                 "from": settings.BULK_SMS_FROM, "to": user.mobile, "message": message}
 #         requests.get(
@@ -1778,9 +1778,9 @@ def get_messages(request):
     except:
         profile_pic = request.user.photo
     if not user_pic:
-        user_pic = "https://cdn.peeljobs.com/dummy.jpg"
+        user_pic = "https://cdn.Bubbas.com/dummy.jpg"
     if not profile_pic:
-        profile_pic = "https://cdn.peeljobs.com/dummy.jpg"
+        profile_pic = "https://cdn.Bubbas.com/dummy.jpg"
     if user:
         messages = render_to_string(
             "candidate/messages.html",

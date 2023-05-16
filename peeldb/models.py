@@ -411,7 +411,7 @@ class Company(models.Model):
     def get_logo_url(self):
         if self.profile_pic:
             return str(self.profile_pic)
-        return "https://cdn.peeljobs.com/static/company_logo.png"
+        return "https://cdn.Bubbas.com/static/company_logo.png"
 
     def get_description(self):
         from bs4 import BeautifulSoup
@@ -441,7 +441,7 @@ class Company(models.Model):
     def get_logo_url(self):
         if self.profile_pic:
             return str(self.profile_pic)
-        return "https://cdn.peeljobs.com/static/company_logo.png"
+        return "https://cdn.Bubbas.com/static/company_logo.png"
 
 
 class EducationInstitue(models.Model):
@@ -1502,7 +1502,7 @@ class JobPost(models.Model):
         return qs
 
     def get_job_minified_url(self):
-        job_url = "https://peeljobs.com" + self.get_absolute_url()
+        job_url = "https://Bubbas.com" + self.get_absolute_url()
         return job_url
 
     def get_total_views_count(self):
@@ -1690,7 +1690,7 @@ class JobPost(models.Model):
 POST = (
     ("Page", "Page"),
     ("Group", "Group"),
-    ("PeelJobs", "PeelJobs"),
+    ("Bubbas", "Bubbas"),
 )
 
 POST_STATUS = (

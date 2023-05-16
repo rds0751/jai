@@ -289,11 +289,11 @@ def postonpeel_fb(job_post):
 
     params["access_token"] = settings.FB_PAGE_ACCESS_TOKEN
     params["name"] = job_name
-    params["caption"] = "http://peeljobs.com"
-    params["actions"] = [{"name": "get peeljobs", "link": "http://peeljobs.com/"}]
+    params["caption"] = "http://Bubbas.com"
+    params["actions"] = [{"name": "get Bubbas", "link": "http://Bubbas.com/"}]
 
     params = urllib.parse.urlencode(params)
-    # response = urllib.urlopen("https://graph.facebook.com/" + settings.FB_PEELJOBS_PAGEID + "/feed", params).read()
+    # response = urllib.urlopen("https://graph.facebook.com/" + settings.FB_Bubbas_PAGEID + "/feed", params).read()
     u = requests.post("https://graph.facebook.com/190700467767653/feed", params=params)
     response = u.json()
     # response = json.loads(response)
