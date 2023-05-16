@@ -131,7 +131,7 @@ INSTALLED_APPS = (
     "rest_framework",
     "rest_framework.authtoken",
     "dj_rest_auth",
-    "django_ses",
+    # "django_ses",
 )
 
 MIDDLEWARE = [
@@ -184,8 +184,8 @@ TEMPLATES = [
 
 AM_ACCESS_KEY = AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY")
 AM_PASS_KEY = AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_KEY")
-AWS_SES_REGION_NAME = os.getenv("AWS_SES_REGION_NAME")
-AWS_SES_REGION_ENDPOINT = os.getenv("AWS_SES_REGION_ENDPOINT")
+# AWS_SES_REGION_NAME = os.getenv("AWS_SES_REGION_NAME")
+# AWS_SES_REGION_ENDPOINT = os.getenv("AWS_SES_REGION_ENDPOINT")
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 
 
@@ -404,7 +404,7 @@ REST_USE_JWT = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-EMAIL_BACKEND = "django_ses.SESBackend"
+# EMAIL_BACKEND = "django_ses.SESBackend"
 
 MP_CELERY_MONITOR_KEY = os.getenv("MP_CELERY_MONITOR_KEY")
 CELERY_MONITOR_URL = os.getenv("CELERY_MONITOR_URL")
