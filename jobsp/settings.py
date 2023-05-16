@@ -7,21 +7,20 @@ load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DEBUG = "DEBUG" True)
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DEFAULT_FROM_EMAIL = "DEFAULT_FROM_EMAIL" "support@Bubbas.com")
+DEFAULT_FROM_EMAIL = "DEFAULT_FROM_EMAIL"
 
-CONTACT_NUMBER = "CONTACT_NUMBER" "850 009 9499")
-
-PEEL_URL = "PEEL_URL" "http://Bubbas.com/")
+CONTACT_NUMBER = "CONTACT_NUMBER"
+PEEL_URL = "PEEL_URL"
 
 # stackoverflow app
 SOF_APP_ID = "SOFAPPID"
 SOF_APP_SECRET = "SOFAPPSECRET"
 SOF_APP_KEY = "SOFAPPKEY"
 
-broker_api = "BROKER_API" "http://guest:guest@localhost:15672/api/")
+broker_api = "BROKER_API"
 
 # Enable debug logging
 
@@ -101,7 +100,7 @@ STATICFILES_FINDERS = (
     "compressor.finders.CompressorFinder",
 )
 
-HTML_MINIFY = "HTML_MINIFY" False)
+HTML_MINIFY = True
 
 ROOT_URLCONF = "jobsp.urls"
 
