@@ -134,7 +134,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="nav-items"><a href="#profile" class="nav-link active" aria-controls="profile" aria-expanded="true" role="tab" data-bs-toggle="tab">Top Profiles</a></li>
-              <li role="presentation" class="nav-items" ><a href="#home" class="nav-link" aria-controls="home" role="tab" aria-expanded="false" data-bs-toggle="tab">Verified Profiles</a></li>
+              {% comment %} <li role="presentation" class="nav-items" ><a href="#home" class="nav-link" aria-controls="home" role="tab" aria-expanded="false" data-bs-toggle="tab">Verified Profiles</a></li> {% endcomment %}
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -216,34 +216,6 @@
 
                 </div>
                 <a class="pull-right view-more" href="/companies/">View More</a>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="home">
-                <div class="row image_row">
-
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/java-jobs/">
-                  <img src="https://Bubbas.s3.amazonaws.com/static/skills1/java_logo.png" alt="Java Profiles">
-                  </a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/asp-dot-net-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/asp-dot-net.png" alt="ASP.net Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/bootstrap-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/bootstrap.png" alt="Bootstrap Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/css-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills/CSS.png" alt="Css Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/adobe-photoshop-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/Adobe_Photoshop.png" alt="Adobe Photoshop Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/javascript-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills/js.png" alt="JavaScript Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/jquery-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills/jquery.png" alt="JQuery Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/android-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/android1.jpg" alt="Android Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/oracle-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/oracle.png" alt="Oracle Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/c-plus-plus-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills/c-logo.png" alt="C Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/mysql-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/MySQL.png" alt="Mysql Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/spring-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/spring.png" alt="Spring Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/angular-js-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/AngularJS_logo.png" alt="Angular Js Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/j2ee-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/j2ee.png" alt="J2ee Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/c-sharp-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/c-sharp.png" alt="c-sharp Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/xml-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/xml-logo.png" alt="Xml Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/hibernate-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/hibernate.png" alt="Hibernate Profiles"></a></div>
-                  <div class="col-md-2 col-sm-3 col-xs-3 image_col skill_image"><a href="/bpo-jobs/"><img src="https://Bubbas.s3.amazonaws.com/static/skills1/bpo.png" alt="BPO Profiles"></a></div>
-
-
-                </div>
-                <a class="pull-right view-more" href="{% url 'jobs_by_skill' %}">View More</a>
               </div>
             </div>
           </div>
