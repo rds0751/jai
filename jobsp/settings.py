@@ -67,7 +67,7 @@ RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHAPRIVATEKEY")
 RECAPTCHA_USE_SSL = False
 
 # Make this unique, and don"t share it with anybody.
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'os.getenv("SECRET_KEY")'
 
 ADMINS = (
     # ("Your Name", "your_email@example.com"),
