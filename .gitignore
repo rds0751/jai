@@ -16,9 +16,6 @@ celerybeat.pid
 resume/
 docs/build
 dist/
-env
-env/
-.env
 secret
 staticfiles/CACHE
 media/
