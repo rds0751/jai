@@ -30,7 +30,7 @@ logging = "DEBUG"
 GIT_APP_ID = os.getenv("GITAPPID")
 GIT_APP_SECRET = os.getenv("GITAPPSECRET")
 
-ALLOWED_HOSTS = ["Bubbas.com", "test.Bubbas.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 # tw app
 tw_oauth_token_secret = os.getenv("twoauthtokensecret")
