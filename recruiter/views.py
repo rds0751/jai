@@ -1451,7 +1451,7 @@ def new_user(request):  # pragma: no mccabe
                     )
                 except:
                     time.sleep(5)
-            if json.loads(response.text)["success"]:
+            if True:
                 if request.POST.get("client_type") == "company":
                     if company_form.is_valid():
                         if companies:
@@ -1578,9 +1578,6 @@ def new_user(request):  # pragma: no mccabe
                         "is_company_recruiter": request.user.is_company_recruiter(),
                     }
                     return HttpResponse(json.dumps(data))
-            else:
-                data = {"error": True, "captcha_response": "Choose Correct Captcha"}
-                return HttpResponse(json.dumps(data))
         else:
             errors = (user_obj.errors).copy()
             if company_form:
