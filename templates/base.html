@@ -1,7 +1,8 @@
 {% load thumbnail %}{% load compress %}{% load searchtags %}{% load page_tags %}{% load static %}{% load cache %}<!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# Bubbas: https://ogp.me/ns/fb/Bubbas#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-11720509-7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -565,7 +566,7 @@
       var user_status = "{{request.user.is_authenticated}}"
       current_date = new Date();
       var diff =  Math.abs(new Date(current_date) - new Date($.cookie("login_popup")));
-      var seconds = Math.floor(diff/1000); //ignore any left over units smaller than a second
+      var seconds = Math.floor(diff/1000); //ignore any left over units smaller than a second +977 981-0330647
       var minutes = Math.floor(seconds/60);
       if (minutes == 5 && ($.cookie("show_popup")=='False')){
         if (user_status == 'False') {
