@@ -79,43 +79,43 @@
                   
                   <li class="dropdown megamenu-fw">
                     <a href="{% url 'jobs:index' %}" class="dropdown-toggle latest-jobs" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                    aria-expanded="false">Latest call girlss<span class="caret"></span></a>
+                    aria-expanded="false">Latest call girls<span class="caret"></span></a>
         
                     <ul class="dropdown-menu megamenu-content" role="menu">
                     <li>
                       <ul class="col-md-2 information" style="width:19.99%">
-                        <li><a href="{% url 'jobs_by_skill' %}">Verified call girlss</a></li>
+                        <li><a href="{% url 'jobs_by_skill' %}">Verified call girls</a></li>
                         {% for skill in total_skills %}
-                        <li><a href="{{ skill.get_job_url }}">{{ skill.name|truncatewords:2 }} call girlss</a></li>
+                        <li><a href="{{ skill.get_job_url }}">{{ skill.name|truncatewords:2 }} call girls</a></li>
                         {% endfor %}
                       </ul>
                       <ul class="col-md-2 information industries_parts">
                         <li><a href="{% url 'jobs_by_industry' %}">New Joined</a></li>
                         {% for industry in total_industries %}
-                        <li><a href="">{{ industry.name|get_industry_name }} call girlss</a></li>
+                        <li><a href="">{{ industry.name|get_industry_name }} call girls</a></li>
                         
                         {% endfor %}
                       </ul>
                       <ul class="col-md-2 information location_parts">
                         <li><a href="{% url 'jobs_by_location' 'jobs' %}">Location</a></li>
                           {% for location in total_locations|slice:"17" %}
-                            <li><a href="{{ location.get_job_url }}">call girlss in {{ location.name }}</a></li>
+                            <li><a href="{{ location.get_job_url }}">call girls in {{ location.name }}</a></li>
                           {% endfor %}
                       </ul>
                       <ul class="col-md-3 information fresher-jobs-part">
                         <li><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">Fresher</a></li>
                         {% for skill in total_skills %}
-                        <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Fresher call girlss</a></li>
+                        <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Fresher call girls</a></li>
                         {% endfor %}
                       </ul>
                       </li>
                     </ul>
                   </li>
                   {% endcache %}
-                  <li {% if request.path == '/fresher-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">New call girlss <span class="sr-only">(current)</span></a></li>
-                   <li {% if request.path == '/walkin-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}">Verified call girlss <span class="sr-only">(current)</span></a></li>
+                  <li {% if request.path == '/fresher-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'fresher' %}">New call girls <span class="sr-only">(current)</span></a></li>
+                   <li {% if request.path == '/walkin-jobs-by-skills/' %}class="active"{% endif %}><a href="{% url 'fresher_jobs_by_skills' 'walkin' %}">Verified call girls <span class="sr-only">(current)</span></a></li>
                   {% if request.user.user_type == 'JS' %}
-                  <li><a href="{% url 'jobs:jobs_applied' %}">Contacted call girlss</a></li>
+                  <li><a href="{% url 'jobs:jobs_applied' %}">Contacted call girls</a></li>
                   {% endif %}
                   <li {% if request.path == '/internship-jobs/' %}class="active"{% endif %}>
                     <a href="{% url 'internship_jobs'%}">New in Town</a>
@@ -202,15 +202,15 @@
               <ul>
                 <li><a href="{% url 'jobs_by_skill' %}">Verified</a></li>
                 {% for skill in total_skills %}
-                <li><a href="{{ skill.get_job_url }}">call girlss For {{ skill.name|truncatewords:2  }}</a></li>
+                <li><a href="{{ skill.get_job_url }}">call girls for {{ skill.name|truncatewords:2  }}</a></li>
                 {% endfor %}
               </ul>
             </div>
             <div class="col-md-3 col-sm-4  job_types_link_col">
               <ul>
-                <li><a href="{% url 'jobs_by_industry' %}">New call girlss</a></li>
+                <li><a href="{% url 'jobs_by_industry' %}">New call girls</a></li>
                 {% for industry in total_industries %}
-                <li><a href="{{ industry.get_job_url }}">call girlss For {{ industry.name|get_industry_name }}</a></li>
+                <li><a href="{{ industry.get_job_url }}">{{ industry.name|get_industry_name }} call girls</a></li>
                 {% endfor %}
               </ul>
             </div>
@@ -218,7 +218,7 @@
               <ul>
                 <li><a href="{% url 'jobs_by_location' 'jobs' %}">Location</a></li>
                 {% for location in total_locations|slice:"17" %}
-                <li><a href="{{ location.get_job_url }}">call girlss in {{ location.name }}</a></li>
+                <li><a href="{{ location.get_job_url }}">call girls near {{ location.name }}</a></li>
                 {% endfor %}
               </ul>
             </div>
@@ -226,7 +226,7 @@
               <ul>
                 <li><a href="/fresher-jobs/">Hot</a></li>
                 {% for skill in total_skills %}
-                <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Hot call girlss</a></li>
+                <li><a href="/{{skill.slug}}-fresher-jobs/">{{ skill.name|truncatewords:2 }} Hot call girls</a></li>
                 {% endfor %}
                 </ul>
             </div>
@@ -261,7 +261,7 @@
                     <li><a href="{% url 'contact' %}" target="_blank">Contact Us</a></li>
                   </ul>
                   <ul class="footer_links">
-                    <li class="text-uppercase">call girlss</li>
+                    <li class="text-uppercase">call girls</li>
                     <li><a href="{% url 'recruiter:new_user' %}" target="_blank">Registration</a></li>
                     <li><a href="{% url 'pages' 'recruiter-faq' %}" target="_blank">FAQs</a></li>
                     <li><a href="{% url 'post_job' %}" target="_blank">Post Job For Free</a></li>
@@ -273,8 +273,8 @@
                     {%else%}
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#login_register">Login / Connect</a></li>
                     {%endif%}
-                    <li><a href="/" target="_blank">Search call girlss</a></li>
-                    <li><a href="{% url 'jobs:index' %}" target="_blank">View All call girlss</a></li>
+                    <li><a href="/" target="_blank">Search call girls</a></li>
+                    <li><a href="{% url 'jobs:index' %}" target="_blank">View All call girls</a></li>
                     <li><a href="{% url 'pages' 'faq' %}" target="_blank">FAQs</a></li>
                   </ul>
                 </div>
