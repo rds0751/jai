@@ -115,12 +115,6 @@
                       </span>
                     {% endif %}
                   {% endif %}
-                  {% if not request|is_events_created:job %}
-                    <form class='event_form' action="/jobs/add/event/" method="POST">
-                      <input type="hidden" name="job_id" value="{{ job.pk }}">
-                      <button class='add_event' id="{{ job.pk }}" data-href="">Add Event</button>
-                    </form>
-                  {% endif %}
                 <a href="{{job.skills.all.0.get_job_url}}" target="_blank">View similar jobs</a>
                 {% if not job.user.is_superuser %}
                   <a href="{% url 'recruiter_profile' job.user.username %}" target="_blank">View jobs by this recruiter</a>

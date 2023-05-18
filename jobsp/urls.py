@@ -81,40 +81,40 @@ urlpatterns = [
         name="job_detail",
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-fresher-jobs-in-(?P<city_name>[-\w]+)/$",
+        r"^(?P<skill_name>[-\w]+)-fresher-call-girls-in-(?P<city_name>[-\w]+)/$",
         skill_location_wise_fresher_jobs,
         name="skill_location_wise_fresher_jobs",
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-fresher-jobs-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
+        r"^(?P<skill_name>[-\w]+)-fresher-call-girls-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
         skill_location_wise_fresher_jobs,
     ),
     url(
-        r"^internship-jobs-in-(?P<location>[-\w]+)/$",
+        r"^internship-call-girls-in-(?P<location>[-\w]+)/$",
         city_internship_jobs,
         name="city_internship_jobs",
     ),
     url(
-        r"^internship-jobs-in-(?P<location>[-\w]+)/(?P<page_num>[0-9]+)/$",
+        r"^internship-call-girls-in-(?P<location>[-\w]+)/(?P<page_num>[0-9]+)/$",
         city_internship_jobs,
     ),
     url(
-        r"^fresher-jobs-in-(?P<city_name>[-\w]+)/$",
+        r"^fresher-call-girls-in-(?P<city_name>[-\w]+)/$",
         location_fresher_jobs,
         name="location_fresher_jobs",
     ),
     url(
-        r"^fresher-jobs-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
+        r"^fresher-call-girls-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
         location_fresher_jobs,
         name="location_fresher_jobs",
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-jobs-in-(?P<city_name>[-\w]+)/$",
+        r"^(?P<skill_name>[-\w]+)-call-girls-in-(?P<city_name>[-\w]+)/$",
         custome_search,
         name="custome_search",
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-jobs-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
+        r"^(?P<skill_name>[-\w]+)-call-girls-in-(?P<city_name>[-\w]+)/(?P<page_num>[0-9]+)/$",
         custome_search,
     ),
     url(
@@ -127,12 +127,12 @@ urlpatterns = [
         custom_walkins,
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-fresher-jobs/$",
+        r"^(?P<skill_name>[-\w]+)-fresher-call-girls/$",
         skill_fresher_jobs,
         name="skill_fresher_jobs",
     ),
     url(
-        r"^(?P<skill_name>[-\w]+)-fresher-jobs/(?P<page_num>[0-9]+)/$",
+        r"^(?P<skill_name>[-\w]+)-fresher-call-girls/(?P<page_num>[0-9]+)/$",
         skill_fresher_jobs,
     ),
     url(
@@ -202,7 +202,7 @@ urlpatterns = [
         name="recruiter_profile",
     ),
     url(
-        r"^(?P<job_type>[-\w]+)-jobs-by-skills/$",
+        r"^(?P<job_type>[-\w]+)-call-girls-by-skills/$",
         fresher_jobs_by_skills,
         name="fresher_jobs_by_skills",
     ),
@@ -214,14 +214,14 @@ urlpatterns = [
     url(r"^jobs-by-skill/$", jobs_by_skill, name="jobs_by_skill"),
     url(r"^jobs-by-industry/$", jobs_by_industry, name="jobs_by_industry"),
     url(r"^jobs-by-degree/$", jobs_by_degree, name="jobs_by_degree"),
-    url(r"^full-time-jobs/$", full_time_jobs, name="full_time_jobs"),
-    url(r"^full-time-jobs/(?P<page_num>[0-9]+)/$", full_time_jobs),
-    url(r"^walkin-jobs/$", walkin_jobs, name="walkin_jobs"),
-    url(r"^walkin-jobs/(?P<page_num>[0-9]+)/$", walkin_jobs),
-    url(r"^internship-jobs/$", internship_jobs, name="internship_jobs"),
-    url(r"^internship-jobs/(?P<page_num>[0-9]+)/$", internship_jobs),
-    url(r"^government-jobs/$", government_jobs, name="government_jobs"),
-    url(r"^government-jobs/(?P<page_num>[0-9]+)/$", government_jobs),
+    url(r"^full-time-call-girls/$", full_time_jobs, name="full_time_jobs"),
+    url(r"^full-time-call-girls/(?P<page_num>[0-9]+)/$", full_time_jobs),
+    url(r"^walkin-call-girls/$", walkin_jobs, name="walkin_jobs"),
+    url(r"^walkin-call-girls/(?P<page_num>[0-9]+)/$", walkin_jobs),
+    url(r"^internship-call-girls/$", internship_jobs, name="internship_jobs"),
+    url(r"^internship-call-girls/(?P<page_num>[0-9]+)/$", internship_jobs),
+    url(r"^government-call-girls/$", government_jobs, name="government_jobs"),
+    url(r"^government-call-girls/(?P<page_num>[0-9]+)/$", government_jobs),
     url(
         r"^assessment/question/view/(?P<que_id>[0-9]+)/$",
         question_view,
@@ -253,16 +253,16 @@ urlpatterns = [
         name="company_jobs",
     ),
     url(
-        r"^(?P<industry>[-\w]+)-industry-jobs/$", job_industries, name="job_industries"
+        r"^(?P<industry>[-\w]+)-industry-call-girls/$", job_industries, name="job_industries"
     ),
-    url(r"^(?P<industry>[-\w]+)-industry-jobs/(?P<page_num>[0-9]+)/$", job_industries),
+    url(r"^(?P<industry>[-\w]+)-industry-call-girls/(?P<page_num>[0-9]+)/$", job_industries),
     url(r"^jobs-for-(?P<industry>[-\w]+)-industry/$", job_industries),
     url(
         r"^jobs-for-(?P<industry>[-\w]+)-industry/(?P<page_num>[0-9]+)/$",
         job_industries,
     ),
-    url(r"^(?P<skill>[a-z0-9-.*?]+)-jobs/$", job_skills, name="job_skills"),
-    url(r"^(?P<skill>[a-z0-9-.*?]+)-jobs/(?P<page_num>[0-9]+)/$", job_skills),
+    url(r"^(?P<skill>[a-z0-9-.*?]+)-call-girls/$", job_skills, name="job_skills"),
+    url(r"^(?P<skill>[a-z0-9-.*?]+)-call-girls/(?P<page_num>[0-9]+)/$", job_skills),
     url(r"^page/(?P<page_name>([a-z0-9-])+)/$", pages, name="pages"),
     url(r"^companies/(?P<page_num>[0-9]+)/$", companies),
     url(r"companies/$", companies, name="companies"),
